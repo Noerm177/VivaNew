@@ -1,0 +1,29 @@
+<div class="authentication">
+  <header class="authentication-header flex">
+    <img class="authentication-header__logo" src="/assets/img/logo_viva.svg" alt="">
+    <ul class="authentication-header__list">
+        <li class="authentication-header__list-item">Información</li>
+        <li class="authentication-header__list-item">Contacto</li>
+      </ul>
+  </header>
+  <div class="authentication-bg">
+    <div class="authentication-wrapper relative">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <footer class="authentication-footer relative">
+    <ul class="authentication-footer__list">
+      <li class="authentication-footer__list-item"><img src="/assets/img/logo.png" alt=""></li>
+      <li class="authentication-footer__list-item">
+        <span class="fw-light">&#169; Viva Orgánica 2018</span>
+      </li>
+      <li class="authentication-footer__list-item">
+        <a class="authentication-footer__list-link" [routerLink]="">Privacidad</a>
+      </li>
+      <li class="authentication-footer__list-item">
+        <a class="authentication-footer__list-link" [routerLink]="">Términos y Condiciones</a>
+      </li>
+    </ul>
+  </footer>
+</div>
+

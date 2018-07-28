@@ -1,0 +1,32 @@
+/*
+ * CATALOG COMPONENTS SETTINGS
+ */
+
+
+/* general settings
+ ******************************************************************************/
+ $catalog-tab-title: $color-white;
+ $catalog-tab-label-bg: $color-brand-accent-900;
+
+ $catalog-tab-body-color: $color-brand-accent;
+ $catalog-tab-text-color: $color-white;
+
+  /* table components
+  ******************************************************************************/
+  $table-border-color:        $color-white;
+  $table-font-color:          $color-white;
+  $table-bg-headers-color:    $color-brand-accent;
+  $table-headers-font-size:   14px;
+
+  $table-cell-first-color:    $color-gray-dark-b;
+  $table-cell-second-color:   $color-brand-accent;
+  $table-cell-font-size:      12px;
+  $table-cell-height:         35px;
+
+  $table-link-color:          $color-brand-primary;
+  $table-arrow-margin-left:   17px;
+
+  /* table footer
+   ******************************************************************************/
+  $table-footer-font-size:    12px;
+  $table-footer-bg-color:     $color-gray-dark;

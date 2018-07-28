@@ -1,0 +1,97 @@
+<!-- top bar -->
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">{{ !editMode ? 'Nuevo cultivo':'Editar cultivo'}}</h3>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <button mat-button color="accent" class="mr-8px" [routerLink]="['/main/crops']">Cancelar</button>
+    <button mat-raised-button color="accent" class="mat-button" [routerLink]="['/main/crops']">Crear</button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="editMode">
+    <button mat-raised-button color="accent" class="mr-8px mat-button" [routerLink]="['/main/crops']">Cancelar</button>
+    <button mat-raised-button color="primary" class="mat-button" [routerLink]="['/main/crops']">Actualizar</button>
+  </div>
+</div>
+
+<div class="flex-wrap flex-align-items-center px-22px pt-18px">
+  <div class="catalog__input mr-28px">
+    <label [ngClass]="{ 'label-error': error }">Nombre: </label>
+    <div class="catalog__input-field minw-222px">
+      <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <input matInput placeholder="Indicar nombre" autocomplete="off">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="catalog__input mr-28px">
+    <label [ngClass]="{ 'label-error': error }">Tipo: </label>
+    <mat-form-field color="accent" class="mat-rounded-select minw-222px" [ngClass]="{ 'mat-form-field-invalid': error }" floatLabel="never">
+      <mat-select placeholder="Seleccionar">
+        <mat-option value="1">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="catalog__input mr-28px">
+    <label [ngClass]="{ 'label-error': error }">Variedad</label>
+    <mat-form-field color="accent" class="mat-form-field-filled minw-222px" [ngClass]="{ 'mat-form-field-invalid': error }" floatLabel="never">
+      <input matInput placeholder="Indicar variedad" autocomplete="off">
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="flex-wrap flex-align-items-center px-22px">
+  <div class="catalog__input mr-28px">
+    <label>Resistencia a plagas: </label>
+    <mat-form-field color="accent" class="mat-rounded-select minw-222px" [ngClass]="{ 'mat-form-field-invalid': error }" floatLabel="never">
+      <mat-select placeholder="Seleccionar" multiple>
+        <mat-option value="1">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="catalog__input mr-28px">
+    <label>Injerto: </label>
+    <mat-slide-toggle color="primary"></mat-slide-toggle>
+  </div>
+
+  <div class="catalog__input">
+    <mat-form-field color="accent" class="mat-form-field-filled" [ngClass]="{ 'mat-form-field-invalid': error }" floatLabel="never">
+      <input matInput placeholder="Agregar injerto" autocomplete="off">
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- selection panel -->
+<div class="catalog-options-panel px-22px pb-10px">
+  <div class="catalog-options-panel__list">
+    <h3 class="fs-12px fw-light">Presentaciones disponibles:</h3>
+    <mat-list>
+      <mat-list-item class="list-header">
+        <mat-icon mat-list-icon>done</mat-icon>
+        <h3 matLine>Nombre</h3>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-checkbox color="accent" matLine>text</mat-checkbox>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="catalog-options-panel__group-buttons">
+    <h3 class="fs-12px fw-light">Mover a:</h3>
+    <button mat-button color="accent"><mat-icon svgIcon="flecha-izq"></mat-icon></button>
+    <button mat-button color="accent"><mat-icon svgIcon="flecha-der"></mat-icon></button>
+  </div>
+
+  <div class="catalog-options-panel__list">
+    <h3 class="fs-12px fw-light">Presentaciones agregadas:</h3>
+    <mat-list>
+      <mat-list-item class="list-header">
+        <mat-icon mat-list-icon>done</mat-icon>
+        <h3 matLine>Nombre</h3>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

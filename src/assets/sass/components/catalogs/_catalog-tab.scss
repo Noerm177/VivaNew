@@ -1,0 +1,25 @@
+/*
+ * CATALOG TAB
+ */
+.catalog{
+
+  .mat-tab-list{
+    background-color: $catalog-tab-label-bg;
+  }
+  .mat-tab-header{
+    border: none;
+  }
+  .mat-tab-label{
+    opacity: 1;
+  }
+  .mat-tab-label .mat-tab-label-content{
+    color: $catalog-tab-title;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .mat-tab-body{
+    background-color: $catalog-tab-body-color;
+    color: $catalog-tab-text-color;
+  }
+
+}

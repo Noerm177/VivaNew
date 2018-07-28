@@ -1,0 +1,58 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">{{ !editMode? 'Nuevo usuario':'Editar usuario' }}</h3>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <button mat-button color="accent" class="mr-8px" [routerLink]="['/main/users']">Cancelar</button>
+    <button mat-button mat-raised-button color="accent" [routerLink]="['/main/users']">Guardar</button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="editMode">
+    <button mat-raised-button color="accent" class="mr-8px mat-button" [routerLink]="['/main/users/detail']">Cancelar</button>
+    <button mat-button mat-raised-button color="primary" [routerLink]="['/main/users/detail']">Actualizar</button>
+  </div>
+</div>
+
+<div class="min-height-480px px-22px pt-18px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="catalog__input mr-28px">
+      <label class="mr-54px" [ngClass]="{ 'label-error': error }">Nombre: </label>
+      <mat-form-field color="accent" class="catalog__search mat-form-field pt-0" floatLabel="never">
+        <input type="text" placeholder="Buscar" aria-label="Unidad" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="value">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{ option }}</mat-option>
+        </mat-autocomplete>
+        <mat-icon class="cursor-pointer" matSuffix *ngIf="!value">search</mat-icon>
+        <button class="catalog__clear-search" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" [disabled]="!editMode ? false : true">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Fecha de nacimiento: </label>
+        <mat-form-field color="accent" class="mat-form-field-filled" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input disabled matInput placeholder="mm / dd / aaaa" autocomplete="off">
+        </mat-form-field>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Selecciona un puesto: </label>
+      <mat-form-field class="mat-rounded-select mt-6px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select>
+          <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Correo electrónico: </label>
+      <div class="minw-222px">
+        <mat-form-field color="accent" class="mat-form-field-filled" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput placeholder="Indicar correo" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+

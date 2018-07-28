@@ -1,0 +1,37 @@
+/*
+ * CATALOG RESPONSIVE
+*/
+
+@media only screen and (max-width: $md-breakpoint) {
+  .catalog {
+    .catalog-inner-header{
+      flex-wrap: wrap;
+      padding-bottom: 10px;
+    }
+    .catalog__actions-buttons {
+      margin-left: auto;
+    }
+    .catalog__actions-buttons .mat-icon-button:last-child{
+      margin-right: 0;
+    }
+    .catalog__canvas-map{
+      border-right: none!important;
+    }
+  }
+  .catalog-row .catalog__input{
+    flex-basis: 200px;
+  }
+}
+
+
+@media only screen and (max-width: 1263px) {
+  .catalog-row{
+    justify-content: space-between;
+    .catalog__input{
+      flex-basis: 270px;
+      .mat-form-field{
+        max-width: 100%;
+      }
+    }
+  }
+}

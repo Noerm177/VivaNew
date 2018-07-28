@@ -1,0 +1,40 @@
+<!-- calendar for week -->
+<table class="calendar-table">
+  <thead>
+    <tr>
+      <th *ngFor="let day of weekend">{{ day.substring(0,3) }}, 0</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td *ngFor="let item of [1,2,3,4,5,6,7]">
+        <div class="flex calendar-table__item line-blurred-separator--center">
+          <div class="flex flex-column">
+            <mat-icon>person</mat-icon>
+            <span>20</span>
+          </div>
+          <div class="flex flex-column">
+            <mat-icon>playlist_add</mat-icon>
+            <span>300</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr *ngFor="let itemFather of [1,2,3,4,5]">
+      <td *ngFor="let item of [1,2,3,4,5,6,7]">
+        <div class="flex calendar-table__item line-blurred-separator--center">
+          <div class="flex flex-column">
+            <mat-icon>person</mat-icon>
+            <span>20</span>
+          </div>
+          <div class="flex flex-column">
+            <mat-icon>playlist_add</mat-icon>
+            <span>300</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

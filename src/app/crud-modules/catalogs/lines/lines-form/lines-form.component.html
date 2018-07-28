@@ -1,0 +1,73 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">Nueva línea</h3>
+  </div>
+
+  <div class="catalog__group-buttons">
+    <button mat-button color="accent" class="mr-8px" (click)="_showLineSection(false,10)">Cancelar</button>
+    <button mat-button mat-raised-button color="accent" (click)="_showLineSection(false,10)">Aceptar</button>
+  </div>
+</div>
+<div class="flex-wrap flex-align-items-center px-22px pb-10px pt-14px">
+  <div class="catalog__input">
+    <label [ngClass]="{ 'label-error': error }">Nombre: </label>
+    <div class="minw-222px">
+      <mat-form-field color="accent" class="mat-form-field-filled" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <input matInput placeholder="Indicar nombre" autocomplete="off">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="catalog__input">
+    <label [ngClass]="{ 'label-error': error }">Cultivo: </label>
+    <div class="mr-28px minw-222px">
+      <mat-form-field color="accent" class="mat-form-select-field-filled" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select placeholder="Seleccionar">
+            <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="catalog__input">
+    <label [ngClass]="{ 'label-error': error }">No. de bancos: </label>
+    <div class="mr-28px mw-100px">
+      <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<div class="catalog-options-panel px-22px pb-10px">
+  <div class="catalog-options-panel__list">
+    <h3 class="fs-12px fw-light">Actividades disponibles:</h3>
+    <mat-list>
+      <mat-list-item class="list-header">
+        <mat-icon mat-list-icon>done</mat-icon>
+        <h3 matLine>Nombre</h3>
+      </mat-list-item>
+      <mat-list-item *ngFor="let action of typesActions">
+        <mat-checkbox color="accent" matLine>{{action}}</mat-checkbox>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="catalog-options-panel__group-buttons">
+    <h3 class="fs-12px fw-light">Mover a:</h3>
+    <button mat-button color="accent"><mat-icon svgIcon="flecha-izq"></mat-icon></button>
+    <button mat-button color="accent"><mat-icon svgIcon="flecha-der"></mat-icon></button>
+  </div>
+  <div class="catalog-options-panel__list">
+    <h3 class="fs-12px fw-light">Actividades requeridas:</h3>
+    <mat-list>
+      <mat-list-item class="list-header">
+        <mat-icon mat-list-icon>done</mat-icon>
+        <h3 matLine>Nombre</h3>
+      </mat-list-item>
+      <!--
+      <mat-list-item *ngFor="let action of typesActions">
+        <mat-checkbox color="accent" matLine>{{action}}</mat-checkbox>
+      </mat-list-item>
+      -->
+    </mat-list>
+  </div>
+</div>
+

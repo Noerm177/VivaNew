@@ -1,0 +1,36 @@
+/**
+ * bredcrumbs styles
+ */
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  min-height: 45px;
+  padding-left: 18px;
+  padding-right: 18px;
+
+  &__route {
+    cursor: pointer;
+    font-size: 10px;
+  }
+
+  &__divider {
+    //color: $color-black;
+    cursor: default;
+    font-size: 16px;
+    height: auto!important;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+
+
+a.breadcrumbs__route {
+  color: $color-gray-light-b;
+  text-decoration: none;
+  cursor: text;
+  &[href] {
+    cursor: pointer;
+  }
+}

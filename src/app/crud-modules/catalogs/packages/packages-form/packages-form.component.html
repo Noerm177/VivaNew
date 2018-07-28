@@ -1,0 +1,50 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail">Ubicación de la unidad de negocio:</h3>
+    <span class="pr-10px">Culiacán, Sinaloa</span>
+  </div>
+  <div class="catalog__actions-buttons">
+    <button mat-button mat-icon-button>
+      <mat-icon aria-label="Nodos" svgIcon="nodos"></mat-icon>
+    </button>
+    <button mat-button mat-icon-button>
+      <mat-icon aria-label="Borrar" svgIcon="borrar"></mat-icon>
+    </button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <button [routerLink]="['/main/packages']" class="mr-8px" mat-button color="accent" (click)="_showPackageSection(false,6)">Cancelar</button>
+    <button mat-button mat-raised-button color="accent" (click)="_showPackageSection(true,6)">Guardar</button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="editMode">
+    <button [routerLink]="['/main/packages']" class="mr-8px" mat-button color="accent" (click)="_showPackageSection(true,6)">Cancelar</button>
+    <button mat-button mat-raised-button color="primary" (click)="_showPackageSection(true,6)">Actualizar</button>
+  </div>
+</div>
+<div class="grid-container">
+  <div class="grid-row">
+    <div class="col-7 col-lg-12 catalog__canvas-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2756.976995511587!2d-107.61560188662237!3d24.918373167335503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86bcc10461ddad63%3A0x7aab5c996dec6946!2sPanteon+Tamarindo!5e1!3m2!1ses!2smx!4v1528859670019" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="col-lg-12 pr-0">
+      <h3 class="catalog__title">{{ editMode ? 'Detalle ':'Información '}}de la Planta de empaque</h3>
+      <div class="catalog__input">
+        <label [ngClass]="{ 'label-error': error }">Nombre:</label>
+        <mat-form-field color="accent" class="mat-form-field-filled flex-60" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput placeholder="Escribe un nombre para la planta…" autocomplete="off">
+        </mat-form-field>
+      </div>
+      <div class="catalog__input">
+        <label [ngClass]="{ 'label-error': error }">Superficie total (mts&#178;):</label>
+        <mat-form-field color="accent" class="mat-form-field-filled flex-60" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input disabled matInput placeholder="0 km&#178; ( 0 pies&#178;)" autocomplete="off">
+        </mat-form-field>
+      </div>
+      <div class="catalog__input">
+        <label [ngClass]="{ 'label-error': error }">Distancia total (km):</label>
+        <mat-form-field color="accent" class="mat-form-field-filled flex-60" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input disabled matInput placeholder="0 km (0 mi)" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

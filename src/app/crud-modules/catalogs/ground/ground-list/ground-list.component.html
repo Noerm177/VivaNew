@@ -1,0 +1,93 @@
+<div class="catalog-inner-header">
+  <form class="flex flex-align-items-center">
+    <h3 class="catalog__label"></h3>
+
+    <mat-form-field color="accent" class="catalog__search mat-form-field" floatLabel="never">
+      <input type="text" placeholder="Buscar" matInput
+        (keyup)="applyFilter($event.target.value)"
+        [formControl]="myControl"
+        [(ngModel)]="value" autocomplete="off">
+
+      <mat-icon class="cursor-pointer" matSuffix *ngIf="!value">search</mat-icon>
+      <button class="catalog__clear-search" mat-button matSuffix mat-icon-button aria-label="Clear"
+        *ngIf="value"
+        (click)="_clearFilter()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+
+  <button class="catalog__button rounded-btn"
+    mat-button mat-raised-button color="accent" [routerLink]="['new']">
+    <mat-icon>add</mat-icon>
+    Nueva base
+  </button>
+</div>
+
+<mat-table class="catalog-table" [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="name">
+    <mat-header-cell class="flex__align-items-center colw-33"
+      *matHeaderCellDef mat-sort-header
+      (click)="_sortByType()" color="primary">
+      <span class="mat-header-cell-label">Nombre</span>
+      <mat-icon class="mat-header-cell-icon">{{ sort_type == 'desc'? 'arrow_drop_down':'arrow_drop_up' }}</mat-icon>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let element"
+      class="colw-33 catalog-table__link" [routerLink]="['detail', element.type=='Suelo' ? 1 : 2]">
+      <span>{{ element.name }}</span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <mat-header-cell class="flex__align-items-center"
+      *matHeaderCellDef mat-sort-header
+      (click)="_sortByType()" color="primary">
+      <span class="mat-header-cell-label">Tipo</span>
+      <mat-icon class="mat-header-cell-icon">{{ sort_type == 'desc'? 'arrow_drop_down':'arrow_drop_up' }}</mat-icon>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let element">
+      <span>{{ element.type }} </span>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row class="p-0" *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row class="p-0" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<div class="catalog-no-results-message" *ngIf="showEmpty">
+  Lo sentimos, no hemos encontrado coincidencias bajo ese criterio de búsqueda.
+</div>
+
+<div class="catalog-table-footer" *ngIf="!showEmpty">
+  <p class="catalog-table-footer__message">
+    Mostrando 1 de 5 de 13 elementos
+  </p>
+
+  <ul class="catalog-pagination">
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-button>Anterior</button>
+    </li>
+    <li class="catalog-pagination__item active">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>1</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>2</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>3</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>4</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>5</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-button>Siguiente</button>
+    </li>
+  </ul>
+</div>
+

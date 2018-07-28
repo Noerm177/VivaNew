@@ -1,0 +1,54 @@
+/*
+ * CUSTOM MATERIAL BUTTON
+ * base styles for material button
+ */
+
+ .mat-button.rounded-btn{
+  &, &.mat-raised-button{
+    border-radius: 20px;
+    max-height: 25px;
+    line-height: 10px;
+    .mat-icon{
+      font-size: 18px;
+      margin-top: 1px;
+    }
+    &.mat-accent{
+      background-color: transparent;
+      &:hover .mat-button-focus-overlay{
+        background-color: $color-brand-accent-400;
+        opacity: .35;
+      }
+    }
+  }
+
+  &.no-has-icon{
+    min-height: 22px;
+  }
+  &:hover .mat-button-focus-overlay{
+    opacity: 1;
+    transition: opacity .2s cubic-bezier(.35,0,.25,1),background-color .2s;
+  }
+}
+
+
+ // accent button
+ .mat-button.mat-accent:not(.mat-raised-button){
+  background-color: $color-brand-accent-400;
+  border: 1px solid $color-brand-accent-900;
+  color: $color-white;
+ }
+ .mat-button.mat-accent.mat-raised-button{
+  background-color: $color-brand-accent-900;
+  border: 1px solid $color-brand-accent-900;
+  box-shadow: none;
+ }
+
+
+ // icon-buttons
+ .mat-button.mat-icon-button, .mat-button .mat-button-ripple-round{
+   border-radius: 0;
+ }
+ .mat-button.mat-icon-button .mat-icon{
+  height: 36px;
+  width: 36px;
+}

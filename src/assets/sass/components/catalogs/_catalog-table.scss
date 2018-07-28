@@ -1,0 +1,100 @@
+/*
+ * CATALOG TABLE
+ * styles for table elements
+ */
+
+ .catalog-table{
+  box-shadow: 1px 0px 1px $color-brand-accent-900;
+  width: 100%;
+  table-layout: fixed;
+
+  .mat-header-row{
+    border-bottom-color: $color-brand-accent-900;
+    min-height: $table-cell-height;
+
+    th.mat-header-cell:last-child {
+      padding: 0px;
+    }
+
+    .mat-header-cell{
+      background-color:  $table-bg-headers-color;
+      min-height: 48px;
+
+      .mat-sort-header-arrow{
+        display: none;
+      }
+      .mat-icon{
+        margin-left: $table-arrow-margin-left;
+      }
+    }
+  }
+
+  .mat-header-cell, .mat-cell{
+    border-right-color: $color-brand-accent-900;
+    border-right-style: solid;
+    border-right-width: 1px;
+    color: $table-font-color;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .mat-header-cell:last-child, .mat-cell:last-child {
+    border-right-width: 0;
+  }
+
+  .mat-row{
+    background-color: $table-cell-first-color;
+    border: none;
+    min-height: 40px;
+
+    .mat-cell{
+      color:$table-font-color;
+      font-size: 12px;
+    }
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: $table-cell-second-color;
+  }
+
+
+  // cells
+  .mat-header-cell-label,
+  .mat-cell span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+  // col width helpers for cols fixed size
+  [class*="colw-"] {
+    flex-grow: 0; // override the rule flex-grow: 1;
+  }
+
+  .colw-10    { flex-basis: 10%; }
+  .colw-15    { flex-basis: 15%; }
+  .colw-20    { flex-basis: 20%; }
+  .colw-33    { flex-basis: 33.33%; }
+  .colw-25    { flex-basis: 25%; }
+  .colw-40    { flex-basis: 40%; }
+  .colw-50    { flex-basis: 50%; }
+  .colw-160px { flex-basis: 160px; }
+  .colw-120px { flex-basis: 120px; }
+
+
+  // table link styles
+  &__link {
+    color: $table-link-color!important;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+// catalog no results message
+.catalog-no-results-message {
+  color: $body-base-color;
+  padding: 170px 10px 200px 10px;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 24px;
+  text-align: center;
+}

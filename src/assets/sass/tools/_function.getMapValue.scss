@@ -1,0 +1,14 @@
+/*
+ * getMapValue FUNCTION
+ * function for get a values from scss maps
+ */
+
+
+ @function getMapValue($mapColor, $key) {
+  @if map-has-key($mapColor, $key) {
+    @return map-get($mapColor, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $mapColor.";
+  @return null;
+}

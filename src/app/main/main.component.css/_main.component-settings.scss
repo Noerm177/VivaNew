@@ -1,0 +1,30 @@
+/*
+ * SETTINGS FOR MAIN COMPONENTS
+ */
+
+
+/* toolbar settings
+ ******************************************************************************/
+  $toolbar-height: 50px;
+  $toolbar-background-color: $color-blue-dark;
+  $toolbar-background-second-color: $color-brand-primary;
+  $toolbar-items-default-color: $color-white;
+
+  $toolbar-user-menu-width: 216px;
+
+  /* sidenav settings
+   ******************************************************************************/
+  $sidenav-default-width: 306px;
+  $sidenav-collapsed-hover-width: 200px;
+  $sidenav-collapsed-width: 50px;
+  $sidenav-background-color: $color-brand-accent;
+  $sidenav-transition-time: .2s;
+  $sidenav-item-height: 50px;
+  $sidenav-item-font-size: 14px;
+  $sidenav-first-item-margin: 65px;
+
+  /* sidenav items settings
+   ******************************************************************************/
+  $sidenav-items-default-color: $color-gray-light-b;
+  $sidenav-items-active-color:  $color-white;
+  $sidenav-items-hover-color:  $color-white;

@@ -1,0 +1,23 @@
+<div class="grid-container">
+  <div class="grid-row">
+    <div class="col-lg-9 col-xl-10 px-0">
+      <!-- header; with switch of days or week -->
+      <app-operations-calendar-header (changeView)="onChange($event)"></app-operations-calendar-header>
+      <!-- calendar component -->
+      <section class="calendar min-height-480px">
+        <!-- task list -->
+        <app-operations-calendar-tasks-list class="calendar-tasks-list"></app-operations-calendar-tasks-list>
+        <!-- calendar change depending of switch -->
+        <div class="calendar-content">
+          <app-operations-calendar-table-weeks *ngIf="defaultMode"></app-operations-calendar-table-weeks>
+          <app-operations-calendar-table-days *ngIf="!defaultMode"></app-operations-calendar-table-days>
+        </div>
+      </section>
+    </div>
+    <div class="col-lg-3 col-xl-2">
+      <!-- workers list -->
+      <app-operations-calendar-workers-list></app-operations-calendar-workers-list>
+    </div>
+  </div>
+</div>
+

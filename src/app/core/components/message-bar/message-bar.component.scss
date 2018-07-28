@@ -1,0 +1,76 @@
+/*
+ * MESSAGE BAR
+ * styles for alert messages
+ */
+
+
+/* import base settings
+ ******************************************************************************/
+ @import '../../../../assets/sass/settings/all';
+ @import '../../../../assets/sass/tools/all';
+
+
+ /* component settings
+  ******************************************************************************/
+ $default-background-color: $color-white;
+ $success-background-color: $color-brand-success;
+ $error-background-color:   $color-brand-danger;
+
+
+ /* component code
+  ******************************************************************************/
+ .message-bar {
+   align-items: center;
+   background-color: $default-background-color;
+   display: flex;
+   justify-content: space-between;
+   left: 0;
+   padding: 2px 6px 2px 21px;
+   position: absolute;
+   transition: transform .13s $easing-in, opacity .13s $easing-in;
+   top: 0;
+   width: 100%;
+   will-change: transform opacity;
+
+   &__text {
+     font-size: 12px;
+     margin: 0;
+   }
+   &__close{
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    &:hover{
+      .close-svg{
+        opacity: .76;
+      }
+    }
+    .close-svg{
+      fill: $color-white;
+    }
+
+   }
+
+   // messages colors
+   &__success,
+   &__error {
+     color: $color-white;
+   }
+
+   &__success {
+     background-color: $success-background-color;
+   }
+   &__error {
+     background-color: $error-background-color;
+   }
+
+   // visible state
+   &.is-not-visible {
+     transform: translateY(-100%);
+     opacity: .5;
+   }
+   &.is-visible {
+     transform: translateY(0);
+     opacity: 1;
+   }
+ }

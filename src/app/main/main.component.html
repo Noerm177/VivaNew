@@ -1,0 +1,75 @@
+
+<mat-toolbar class="toolbar" [ngClass]="{ 'sidenav-is-not-collapsed': sidenavIsOpen, 'sidenav-is-collapsed': !sidenavIsOpen }">
+  <figure class="toolbar__logo">
+    <a class="toolbar__logo-wrapper" [routerLink]="['/main']">
+      <img class="toolbar__logo-image-lg" src="../../../assets/img/vive-crece-cosecha.svg" alt="Vive.Crece.Cosecha">
+      <img class="toolbar__logo-image-sm" src="../../../assets/img/logo.svg" alt="Vive.Crece.Cosecha">
+    </a>
+  </figure>
+  <button class="toolbar__toggle-button" mat-icon-button (click)="_openMenu()"><mat-icon>menu</mat-icon></button>
+  <div class="toolbar-user" [matMenuTriggerFor]="userMenu">
+    <div class="toolbar-user__image" [ngStyle]="{ 'background-image': 'url(' + userImageUrl + ')' }"></div>
+    <div class="toolbar-user__information">
+      <p class="toolbar-user__name">Lorem ipsum</p>
+      <p class="toolbar-user__company">Company role</p>
+    </div>
+  </div>
+  <mat-menu class="toolbar-user-menu" #userMenu="matMenu">
+    <div mat-menu-item class="toolbar-user-menu__information" disabled>
+      <p class="toolbar-user-menu__username">Lorem ipsum</p>
+      <p class="toolbar-user-menu__mail m-0">Company role</p>
+    </div>
+    <mat-divider></mat-divider>
+    <button mat-menu-item [routerLink]="['profile']">Ver perfil</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item class="toolbar-user-menu__signout" (click)="logout()">Cerrar sesión</button>
+  </mat-menu>
+</mat-toolbar>
+
+<!-- sidenav -->
+<mat-sidenav-container>
+	<mat-sidenav mode="side" opened="true" [ngClass]="{ 'sidenav-is-not-collapsed': sidenavIsOpen, 'sidenav-is-collapsed': !sidenavIsOpen }">
+		<mat-list class="sidenav-list">
+			<mat-list-item>
+				<mat-icon matListIcon svgIcon="agroanalitica"></mat-icon>
+				<h4 matLine><a>Agroanalítica</a></h4>
+			</mat-list-item>
+
+			<mat-list-item>
+				<mat-icon matListIcon svgIcon="actividad"></mat-icon>
+				<h4 matLine>Operaciones</h4>
+			</mat-list-item>
+
+			<mat-list-item>
+				<mat-icon matListIcon svgIcon="rendimiento"></mat-icon>
+				<h4 matLine>Rendimiento</h4>
+			</mat-list-item>
+
+			<mat-list-item class="sidenav-list__item">
+				<mat-icon matListIcon svgIcon="catologos"></mat-icon>
+				<h4 matLine>Catálogos</h4>
+				<div class="sidenav-list__item-sublist" matLine>
+					<a [routerLink]="['business-unit']">Unidades de negocio</a>
+				  <a [routerLink]="['activities']">Actividades</a>
+          <a [routerLink]="['crops']">Cultivos</a>
+          <a [routerLink]="['ground']">Suelos</a>
+          <a [routerLink]="['incidents']">Incidencias</a>
+          <a [routerLink]="['presentations']">Presentaciones</a>
+					<a [routerLink]="['users']">Usuarios</a>
+					<a [routerLink]="['packaging']">Empaques</a>
+				</div>
+			</mat-list-item>
+
+			<mat-list-item>
+				<mat-icon matListIcon svgIcon="productividad"></mat-icon>
+				<h4 matLine>Ranking de productividad</h4>
+			</mat-list-item>
+		</mat-list>
+	</mat-sidenav>
+
+	<mat-sidenav-content [ngClass]="{ 'sidenav-is-not-collapsed': sidenavIsOpen, 'sidenav-is-collapsed': !sidenavIsOpen }">
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
+
+

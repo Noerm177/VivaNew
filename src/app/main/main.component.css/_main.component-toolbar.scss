@@ -1,0 +1,141 @@
+/*
+ * TOOLBAR STYLES
+ */
+
+
+.mat-toolbar {
+  color: $toolbar-items-default-color;
+  background: linear-gradient(45deg, $toolbar-background-color 0%, $toolbar-background-second-color 100%);
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.45);
+}
+
+.mat-toolbar-single-row.mat-toolbar {
+  padding-left: 0;
+  overflow: hidden;
+  height: $toolbar-height;
+}
+
+
+.toolbar {
+  // logo styles
+  &__logo,
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__logo-wrapper {
+    width: 100%;
+  }
+  &__logo {
+    background-color: $toolbar-background-color;
+    box-shadow: inset -1px 0px 5px 0px rgba(0, 0, 0, 0.45);
+    margin: 0;
+    height: 100%;
+    width: $sidenav-default-width - .9px;
+  }
+  &__logo,
+  &__toggle-button {
+    transition: transform $sidenav-transition-time $easing-out;
+    will-change: transform;
+  }
+  &__logo-image-sm,
+  &__logo-image-lg {
+    display: block;
+    transition: transform $sidenav-transition-time $standard-curve;
+    will-change: transform;
+  }
+  &__logo-image-lg{
+    margin-left: 12px;
+    width: 282px;
+    //width: 343px;
+  }
+  &__logo-image-sm {
+    margin-right: 9px;
+    max-height: 32px;
+  }
+  // toggle button
+  &__toggle-button {
+    margin-left: 5px;
+    border-radius: 0;
+    .mat-button-ripple-round{
+      border-radius: 0;
+    }
+    .mat-icon{
+      font-size: 22px;
+    }
+  }
+}
+
+/* toolbar user name info
+ ******************************************************************************/
+.toolbar-user {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  margin-left: auto;
+  min-width: $toolbar-user-menu-width;
+
+  &__information {
+    padding-right: 20px;
+  }
+
+  &__image {
+    height: 33px;
+    width: 33px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 20px;
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__company {
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  &__name,
+  &__company {
+    color: $color-white;
+    line-height: 16px;
+    margin: 0;
+  }
+}
+
+/* sidenav open state adjustments
+ ******************************************************************************/
+.toolbar.sidenav-is-not-collapsed {
+
+  .toolbar__toggle-button {
+    transform: translateX(0);
+  }
+}
+.toolbar.sidenav-is-collapsed {
+    .toolbar__logo{
+      transform: translateX(-($sidenav-default-width - ($sidenav-collapsed-width)));
+    }
+
+    // toggle button
+    .toolbar__toggle-button {
+      transform: translateX(-($sidenav-default-width - $sidenav-collapsed-width));
+    }
+}
+
+
+.sidenav-is-collapsed .toolbar__logo-image-lg,
+.sidenav-is-not-collapsed .toolbar__logo-image-sm {
+  height: 0;
+  transform: scale(0);
+}
+.sidenav-is-not-collapsed .toolbar__logo-image-lg,
+.sidenav-is-collapsed .toolbar__logo-image-sm {
+  height: auto;
+  transform: scale(1);
+}

@@ -1,0 +1,32 @@
+.input-file-filled {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.input-file-filled + label {
+  font-size: 12px;
+  box-sizing: border-box;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 88px;
+  line-height: 36px;
+  padding: 0 16px;
+  overflow: visible;
+}
+.input-file-filled + label.color-accent{
+  background-color: $color-brand-accent-400;
+  border: 1px solid $color-brand-accent-900;
+  color: $color-white;
+}
+

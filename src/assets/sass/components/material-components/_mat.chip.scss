@@ -1,0 +1,22 @@
+/*
+ * CUSTOM MATERIAL CHIP LIST
+*/
+
+.mat-chip{
+  font-size: 12px;
+  padding: 2px 10px 2px 13px!important;
+  &.mat-primary.mat-standard-chip,
+  &.mat-standard-chip {
+    background-color: $color-brand-primary;
+    color: $color-white;
+  }
+  .mat-chip-list-wrapper .mat-standard-chip, .mat-chip-list-wrapper input.mat-input-element {
+    margin: 0px;
+  }
+  .mat-icon{
+    margin-top: 0!important;
+  }
+  &.mat-standard-chip .mat-chip-remove, .mat-icon g{
+    opacity: 1;
+  }
+}

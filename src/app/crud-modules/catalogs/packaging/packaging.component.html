@@ -1,0 +1,21 @@
+<div class="main-inner-wrapper">
+  <div class="breadcrumbs">
+    <a class="breadcrumbs__route">Catálogos</a>
+    <mat-icon class="breadcrumbs__divider">navigate_next</mat-icon>
+    <a class="breadcrumbs__route" [routerLink]="['/main/packaging']">Empaques</a>
+    <mat-icon class="breadcrumbs__divider" *ngIf="breadcrumbs != ''" >navigate_next</mat-icon>
+    <a class="breadcrumbs__route cursor-default" *ngIf="breadcrumbs != ''">{{breadcrumbs}}</a>
+  </div>
+
+  <mat-card class="catalog">
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Empaques">
+
+          <router-outlet></router-outlet>
+
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

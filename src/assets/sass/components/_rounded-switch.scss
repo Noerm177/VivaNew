@@ -1,0 +1,76 @@
+/*
+   Custom component: rounded-switch styles
+
+*/
+
+// variables
+$font-size-labels: 10px;
+$padding-label: 5px;
+
+
+.rounded-switch {
+  position: relative;
+  display: inline-block;
+  font-size: $font-size-labels;
+  text-transform: uppercase;
+  min-width: 159px;
+  height: 22px;
+
+  /* Hide default HTML checkbox */
+  input { display:none; }
+
+  /* The slider */
+  .slider {
+    border-radius: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-brand-accent-900;
+    transition: .4s;
+  }
+
+  .slider-container{
+    position: absolute;
+    height: 100%;
+    background-color: $color-brand-primary;
+    transition: .4s;
+    border-radius: 11px;
+    padding: $padding-label;
+  }
+
+  .slider-labels{
+    color: $color-white;
+    display: flex;
+  }
+  .slider-container, .slider-labels span{
+    text-align: center;
+    padding: $padding-label;
+    width: 50%;
+  }
+}
+
+// When input is checked
+.rounded-switch.checked{
+  .slider-container {
+    transform: translateX(100%);
+  }
+  .slider-labels{
+    span:first-child{
+      opacity: 1;
+    }
+    span:last-child{
+      opacity: 0;
+    }
+  }
+}
+
+// When input is unchecked
+.rounded-switch.no-checked{
+  .slider-labels span:first-child{
+    opacity: 0;
+  }
+}
+

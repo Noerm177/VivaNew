@@ -1,0 +1,83 @@
+/*
+ *  CATALOG INPUTS STYLES
+ */
+
+ .catalog {
+
+  /* inputs styles */
+  &__input{
+    margin-bottom: 14px;
+    justify-content: space-between;
+
+    > label{
+      color: $color-white;
+      font-size: 12px;
+      line-height: 14px;
+      padding-right: 16px;
+    }
+    > label.label-error{
+      color: $color-brand-warn;
+    }
+
+    .mat-icon-button .mat-icon{
+      line-height: 22px;
+    }
+
+    &-field{
+      .error{
+        margin-top:4px;
+        color: $color-brand-warn;
+      }
+    }
+
+    /* bullet before inputs */
+    &.catalog__input-bullet::before{
+      position: absolute;
+      content: '\00B7';
+      font-weight: bold;
+      left: -20px;
+    }
+  }
+
+  &__data-detail{
+    margin-bottom: 36px;
+    span{
+      font-weight: 900;
+    }
+    label,
+    span {
+      font-size: 12px;
+      width: 100%;
+    }
+  }
+
+  &__input, &__data-detail, &__add-input .mat-button-wrapper, &__add-input .mat-icon{
+    display: flex;
+    align-items: center;
+  }
+
+  &__add-input{
+    background-color: transparent!important;
+    border: 1px solid $color-brand-accent-900;
+    color: $color-white;
+    margin-top: 3px!important;
+    min-width: 36px!important;
+    max-width: 36px!important;
+    max-height: 36px;
+    min-height: 36px;
+    padding: 0;
+    .mat-button-wrapper, .mat-icon{
+      justify-content: center;
+    }
+  }
+
+  &-row .catalog__input{
+    flex-basis: 225px;
+    justify-content: flex-start;
+    padding-right: 20px;
+    .mat-form-field{
+      max-width: 100px;
+    }
+  }
+
+ }

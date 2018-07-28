@@ -1,0 +1,171 @@
+<div class="catalog-inner-header" *ngIf="!addNewMode">
+  <form class="flex flex-align-items-center">
+    <h3 class="catalog__label"></h3>
+    <mat-form-field color="accent" class="catalog__search mat-form-field" floatLabel="never">
+      <input type="text" placeholder="Buscar" matInput (keyup)="applyFilter($event.target.value)" [formControl]="myControl" [(ngModel)]="value" autocomplete="off">
+      <mat-icon class="cursor-pointer" matSuffix *ngIf="!value">search</mat-icon>
+      <button class="catalog__clear-search" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="_clearFilter()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+  <button class="catalog__button rounded-btn" mat-button mat-raised-button color="accent" (click)="addNewMode = true">
+    <mat-icon>add</mat-icon>
+    Nueva etapa
+  </button>
+</div>
+
+<!-- fields to add new stage -->
+<div *ngIf="addNewMode">
+  <div class="catalog-inner-header">
+    <div class="flex flex-align-items-center">
+      <h3 class="catalog__label-detail fs-16px">Nueva etapa</h3>
+    </div>
+    <div class="catalog__group-buttons">
+      <button mat-button color="accent" class="mr-8px" (click)="addNewMode = false">Cancelar</button>
+      <button mat-button mat-raised-button color="accent" (click)="addNewMode = false">Crear</button>
+    </div>
+  </div>
+
+  <div class="flex-wrap flex-align-items-center px-22px pb-10px pt-14px">
+    <div class="catalog__input mr-28px minw-222px">
+      <label [ngClass]="{ 'label-error': error }">Fecha de planteo: </label>
+      <div class="flex-row">
+        <mat-form-field color="accent"  class="mat-form-field-filled" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput [matDatepicker]="dp" placeholder="mm / dd / aaaa" [formControl]="date" [min]="minDate">
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp></mat-datepicker>
+        </mat-form-field>
+        <button class="text-white-60" mat-icon-button>
+          <mat-icon (click)="dp.open()">event</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Cultivo: </label>
+      <div class="mr-28px minw-222px">
+        <mat-form-field color="accent" class="mat-form-select-field-filled" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <mat-select placeholder="Seleccionar">
+              <mat-option value="1">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Densidad por hectárea: </label>
+      <div class="mr-28px mw-100px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Plantas por surco: </label>
+      <div class="mr-28px mw-100px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Ciclo: </label>
+      <div class="minw-222px">
+        <mat-form-field color="accent" class="mat-form-select-field-filled" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <mat-select placeholder="Seleccionar">
+              <mat-option value="1">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-table class="catalog-table" [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="date">
+    <mat-header-cell class="flex__align-items-center colw-20" *matHeaderCellDef mat-sort-header (click)="_sortByType()" color="primary">
+      <span class="mat-header-cell-label">Fecha de planteo</span>
+      <mat-icon class="mat-header-cell-icon">{{ sort_type == 'desc'? 'arrow_drop_down':'arrow_drop_up' }}</mat-icon>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="colw-20 catalog-table__link" (click)="_showLotSection(true,3)">
+      <span>{{ element.date }}</span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="crop">
+    <mat-header-cell class="flex__align-items-center colw-20" *matHeaderCellDef mat-sort-header (click)="_sortByType()" color="primary">
+      <span class="mat-header-cell-label">Cultivo</span>
+      <mat-icon class="mat-header-cell-icon">{{ sort_type == 'desc'? 'arrow_drop_down':'arrow_drop_up' }}</mat-icon>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="colw-20">
+      <span>{{ element.crop }} </span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="density">
+    <mat-header-cell class="flex__align-items-center colw-20" *matHeaderCellDef mat-sort-header (click)="_sortByType()" color="primary">
+      <span class="mat-header-cell-label">Densidad por hectárea</span>
+      <mat-icon class="mat-header-cell-icon">{{ sort_type == 'desc'? 'arrow_drop_down':'arrow_drop_up' }}</mat-icon>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="colw-20">
+      <span>{{ element.density }}</span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="plantsNumber">
+    <mat-header-cell class="flex__align-items-center colw-20" *matHeaderCellDef mat-sort-header (click)="_sortByType()" color="primary">
+      <span class="mat-header-cell-label">Plantas por surco</span>
+      <mat-icon class="mat-header-cell-icon">{{ sort_type == 'desc'? 'arrow_drop_down':'arrow_drop_up' }}</mat-icon>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="colw-20">
+      <span>{{ element.plantsNumber }}</span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cycle">
+    <mat-header-cell class="flex__align-items-center colw-20" *matHeaderCellDef mat-sort-header (click)="_sortByType()" color="primary">
+      <span class="mat-header-cell-label">Ciclo</span>
+      <mat-icon class="mat-header-cell-icon">{{ sort_type == 'desc'? 'arrow_drop_down':'arrow_drop_up' }}</mat-icon>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="colw-20">
+      <span>{{ element.cycle }}</span>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row class="p-0" *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row class="p-0" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<div class="catalog-no-results-message" *ngIf="showEmpty">
+  Lo sentimos, no hemos encontrado coincidencias bajo ese criterio de búsqueda.
+</div>
+
+<div class="catalog-table-footer" *ngIf="!showEmpty">
+  <p class="catalog-table-footer__message">
+    Mostrando 1 de 5 de 13 elementos
+  </p>
+
+  <ul class="catalog-pagination">
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-button>Anterior</button>
+    </li>
+    <li class="catalog-pagination__item active">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>1</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>2</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>3</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>4</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-fab mat-mini-fab>5</button>
+    </li>
+    <li class="catalog-pagination__item">
+      <button class="catalog-pagination__button" mat-button>Siguiente</button>
+    </li>
+  </ul>
+</div>

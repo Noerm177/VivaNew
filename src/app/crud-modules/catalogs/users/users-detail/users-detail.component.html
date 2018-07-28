@@ -1,0 +1,32 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">Detalle de usuario</h3>
+  </div>
+
+  <div class="catalog__group-buttons">
+    <button mat-raised-button color="warn" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : !changeStatus }">Inhabilitar</button>
+    <button mat-raised-button color="primary" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : changeStatus }">Habilitar</button>
+    <button mat-raised-button color="primary" [routerLink]="['/main/users/edit']" [ngClass]="{ 'd-none' : !changeStatus }">Editar</button>
+  </div>
+</div>
+
+<div class="min-height-480px px-22px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Nombre:</p>
+      <p class="fs-12px">Daniel Habraham Castillo</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Fecha de nacimiento:</p>
+      <p class="fs-12px">09 / 10 / 1985</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Puesto:</p>
+      <p class=" fs-12px">Supervisor Junior</p>
+    </div>
+    <div class="text-white flex-align-items-center">
+      <p class="mr-20px fs-12px">Correo electrónico:</p>
+      <p class="fs-12px">example@vivasmart.com</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+/*
+ * GENERAL CATALOG STYLES
+ */
+
+.catalog .grid-row > [class*="col-"]{
+  border-right-color: $color-brand-accent-900;
+  border-right-style: solid;
+  border-right-width: 1px;
+
+  &:last-child{
+    border: none;
+  }
+}
+
+.catalog-row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// inner & it components header styles
+.catalog {
+   padding: 0!important;
+   overflow-y: visible!important;
+
+  &-inner-header{
+    align-items: center;
+    display: flex;
+    border-bottom-color: $color-brand-accent-900;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    min-height: 55px;
+    padding-left: 22px;
+    padding-right: 19px;
+  }
+
+  &-inner-header + div,  &-inner-header + section{
+    padding-top: 18px;
+  }
+
+  &-inner-header &__input{
+    margin-bottom: 0;
+  }
+
+  &__title{
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 19px;
+  }
+
+  &__label{
+    font-size: 12px;
+    font-weight: normal;
+    padding-right: 13px;
+  }
+
+  /* label only for details components */
+  &__label-detail{
+    font-size: 14px;
+    padding-right: 40px;
+  }
+
+ /* search component */
+  &__search{
+    padding-top: 11px;
+    padding-right: 13px;
+
+    .mat-form-field-flex{
+      align-items: center;
+      border: 1px solid $color-gray-cod;
+      display: flex;
+      min-height: 36px;
+      padding: 2px 10px;
+    }
+    .mat-form-field-label, .mat-icon,
+    .mat-form-field.mat-focused .mat-form-field-label,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label{
+      color: $color-white-60;
+    }
+
+    .mat-form-field-underline {
+      display: none;
+    }
+    // remove border to aline correctly with mat-icon inside mat-form-field
+    .mat-form-field-infix{
+      border: none;
+    }
+    .mat-form-field-wrapper{
+      padding-bottom: .5em;
+    }
+    .mat-icon{
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    &.mat-form-field-disabled .catalog__clear-search .mat-icon{
+      color: $color-white-60;
+    }
+  }
+  // icon delete for clear input after search
+  &__clear-search .mat-icon{
+    color: $color-white;
+    font-weight: 900!important;
+    height: 30px;
+  }
+
+  // button rounded to add in all list components
+  &__button{
+    border: 1px solid $color-gray-cod!important;
+  }
+
+  // buttons to action such add polygon on map
+  &__actions-buttons{
+    margin-left: 87px;
+    padding-right: 10px;
+
+    .mat-icon-button{
+      border: 1px solid $catalog-tab-label-bg;
+      margin-right: 10px;
+    }
+  }
+
+  // buttons group such as 'cancel' / 'edit' / 'save'
+  &__group-buttons{
+    margin-left: auto;
+    .mat-button,.mat-raised-button{
+      min-width: 108px;
+      min-height: 36px!important;
+    }
+  }
+
+  // group of buttons to add from details
+  &__group-buttons-line{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+    min-height: 200px;
+  }
+
+}
+
+
+
+
+

@@ -1,0 +1,48 @@
+<div class="catalog-inner-header">
+    <div class="flex flex-align-items-center">
+      <h3 class="catalog__label-detail fs-16px">{{ !editMode? 'Nueva incidencia':'Editar incidencia' }}</h3>
+    </div>
+
+    <div class="catalog__group-buttons" *ngIf="!editMode">
+      <button mat-button color="accent" class="mr-8px" [routerLink]="['/main/incidents']">Cancelar</button>
+      <button mat-button mat-raised-button color="accent" [routerLink]="['/main/incidents']">Crear</button>
+    </div>
+    <div class="catalog__group-buttons" *ngIf="editMode">
+      <button mat-raised-button color="accent" class="mr-8px mat-button" [routerLink]="['/main/incidents/']">Cancelar</button>
+      <button mat-button mat-raised-button color="primary" [routerLink]="['/main/incidents/']">Actualizar</button>
+    </div>
+  </div>
+
+  <div class="min-height-480px px-22px pt-18px">
+    <div class="flex-wrap flex-align-items-center">
+      <div class="catalog__input mr-28px">
+        <label [ngClass]="{ 'label-error': error }">Nombre: </label>
+        <mat-form-field color="accent" class="mat-form-field-filled minw-210px ml-21px"
+          floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input type="text" matInput placeholder="Indicar nombre" autocomplete="off">
+        </mat-form-field>
+      </div>
+
+      <div class="catalog__input mr-28px">
+        <label [ngClass]="{ 'label-error': error }">Área: </label>
+        <mat-form-field class="mat-rounded-select mt-6px minw-220px"
+          [ngClass]="{ 'mat-form-field-invalid': error }">
+          <mat-select>
+            <mat-option value="1">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="catalog__input mr-28px">
+        <label [ngClass]="{ 'label-error': error }">Descripción:</label>
+        <div class="minw-500px">
+          <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+            <input matInput placeholder="Indicar descripción" autocomplete="off">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>

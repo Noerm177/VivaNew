@@ -1,0 +1,51 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">Detalle de cultivo</h3>
+  </div>
+
+  <div class="catalog__group-buttons">
+    <button class="mr-8px mat-button" mat-raised-button
+      color="{{ cropIsActive ? 'warn' : 'primary' }}"
+      (click)="openDialog()">
+      {{ cropIsActive ? 'Inhabilitar' : 'Habilitar' }}
+    </button>
+    <button mat-raised-button color="primary" *ngIf="cropIsActive"
+      [routerLink]="['/main/crops/edit']">
+      Editar
+    </button>
+  </div>
+</div>
+
+<div class="min-height-480px px-22px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Nombre:</p>
+      <p class="fs-12px">Pepino</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Tipo</p>
+      <p class="fs-12px">Orgánico</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Variedad:</p>
+      <p class=" fs-12px">Parmeo</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Resistencia a plagas:</p>
+      <p class="fs-12px">Araña roja, Mosca</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Injerto:</p>
+      <p class=" fs-12px">Pepino</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Presentaciones:</p>
+      <p class=" fs-12px">Chico, Mediano, Grande</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">Detalle de actividad</h3>
+  </div>
+
+  <div class="catalog__group-buttons">
+    <button mat-raised-button color="warn" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : !changeStatus }">Inhabilitar</button>
+    <button mat-raised-button color="primary" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : changeStatus }">Habilitar</button>
+    <button mat-raised-button color="primary" [routerLink]="['/main/activities/edit']" [ngClass]="{ 'd-none' : !changeStatus }">Editar</button>
+  </div>
+</div>
+
+<div class="min-height-480px px-22px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Unidad de negocio:</p>
+      <p class="fs-12px">Culiacán, Sinaloa.</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Código:</p>
+      <p class="fs-12px">1001</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Rango del:</p>
+      <p class="fs-12px">1001</p>
+      <p class="ml-20px mr-20px fs-12px">Al:</p>
+      <p class=" fs-12px">1024</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Nombre:</p>
+      <p class="fs-12px">Desbrote lateral</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Tipo:</p>
+      <p class="fs-12px">Destajo</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Unidad:</p>
+      <p class="fs-12px">Cubeta</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Costo por unidad:</p>
+      <p class="fs-12px">$10.5</p>
+    </div>
+    <div class="text-white mw-350px flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Descripción:</p>
+      <p class="fs-12px truncate-text">Aclareo o desbrote desde vivero, donde el brote injertado se despunta a una altura de</p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Icono:</p>
+      <figure class="figure-icon minw-60px min-height-36px cursor-default">
+        <mat-icon matListIcon svgIcon="broto-capar"></mat-icon>
+      </figure>
+    </div>
+</div>
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>9A55C0B2-B948-47DE-841C-A03743623F0D</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Unidades-de-negocio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="crear_nave" transform="translate(-805.000000, -152.000000)">
+            <g id="pornodo" transform="translate(805.000000, 152.000000)">
+                <!--<rect id="Rectangle-4" stroke="#181818" fill="#2C2C2C" x="0.5" y="0.5" width="35" height="35" rx="1"></rect>-->
+                <g id="Group-3" opacity="0.6" transform="translate(9.000000, 5.000000)" stroke="#FFFFFF">
+                    <polyline id="Path-2" points="2 1 2 6.8779863 12.0284056 7 17 7 17 17.9860997 4.82781599 24"></polyline>
+                    <g id="Group-2" fill="#181818">
+                        <rect id="Rectangle-5" x="0.5" y="0.5" width="3" height="3"></rect>
+                        <rect id="Rectangle-5" x="10.5" y="5.5" width="3" height="3"></rect>
+                        <rect id="Rectangle-5" x="3.5" y="23.5" width="3" height="3"></rect>
+                        <rect id="Rectangle-5" x="15.5" y="16.5" width="3" height="3"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

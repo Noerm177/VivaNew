@@ -1,0 +1,25 @@
+/*
+ * INNER MAIN CONTAINER
+ * main content inner wrapper
+ */
+
+// imported main component settings for use on this component
+@import "../../../app/main/main.component.css/main.component-settings";
+
+
+.main-inner-wrapper {
+  min-height: calc(100vh - 215px);
+  position: relative;
+  padding: 8px 22px 0;
+
+  .mat-card{
+    background-color: $color-brand-accent-900;
+    overflow-y: auto;
+  }
+}
+
+// width for inner wrapper when the sidenav is collapsed
+.mat-sidenav-content.sidenav-is-collapsed .main-inner-wrapper {
+  width: calc(100% + #{$sidenav-default-width - $sidenav-collapsed-width});
+}
+

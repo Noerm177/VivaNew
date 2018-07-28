@@ -1,0 +1,50 @@
+<div class="catalog-inner-header">
+
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail">Ubicación:</h3>
+    <span class="pr-10px">{{businessUnit?.state}}</span>
+  </div>
+
+  <div class="catalog__group-buttons">
+    <button mat-raised-button color="warn" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : !changeStatus }">Inhabilitar</button>
+    <button mat-raised-button color="primary" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : changeStatus }">Habilitar</button>
+    <button mat-raised-button color="primary" [routerLink]="['/main/business-unit/edit',businessUnit?.id]" [ngClass]="{ 'd-none' : !changeStatus }">Editar</button>
+  </div>
+
+</div>
+<div class="grid-container">
+  <div class="grid-row">
+
+    <div class="col-7 col-md-12 catalog__canvas-map">
+      <app-map></app-map>
+    </div>
+
+    <div class="col-5 col-md-12 pr-0">
+      <h3 class="catalog__title">Información de la unidad de negocio</h3>
+      <div class="catalog__data-detail">
+        <label>Nombre de la unidad de negocio:</label>
+        <span>{{businessUnit?.name}}</span>
+      </div>
+      <div class="catalog__data-detail">
+        <label>Superficie total (mts&#178;):</label>
+        <span>{{businessUnit?.surface}} km&#178;</span>
+      </div>
+      <div class="catalog__data-detail">
+        <label>Distancia total (km):</label>
+        <span>{{businessUnit?.perimeter}} km</span>
+      </div>
+      <div class="catalog__group-buttons-line">
+        <button class="catalog__button rounded-btn" mat-button mat-raised-button color="accent" *ngIf="businessUnit?.lot_no == 0"> <!--[routerLink]="['new']"-->
+          <mat-icon>add</mat-icon>
+          Agregar Lote
+        </button>
+
+        <div class="line-separator"></div>
+        <button class="catalog__button rounded-btn" mat-button mat-raised-button color="accent" *ngIf="businessUnit?.packinghouse_no == 0">
+          <mat-icon>add</mat-icon>
+          Nuevo empaque
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

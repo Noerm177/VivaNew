@@ -1,0 +1,23 @@
+.input-filled{
+  font-size: 14px;
+  padding: 11px 5px;
+  text-align: center;
+  min-height: 25px;
+
+  &.input-filled--acent{
+    background-color: $color-brand-accent-900;
+    border: 1px solid $color-brand-accent-900;
+    color: $color-white;
+    &::placeholder{
+      color: $color-white-60;
+    }
+  }
+  &.field-invalid, &.field-invalid::placeholder, &:invalid{
+    color: $color-brand-warn!important;
+  }
+  &.field-invalid, &:invalid{
+    border-color: $color-brand-warn;
+  }
+
+}
+

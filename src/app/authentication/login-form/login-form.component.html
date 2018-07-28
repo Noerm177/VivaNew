@@ -1,0 +1,22 @@
+<app-invasive-loader class="invasive-loader" *ngIf="showInvasiveLoader"></app-invasive-loader>
+<div class="authentication-wrapper__container">
+  <div class="authentication__inner-header">
+    <h1 class="authentication-title">Vive.Crece.Cosecha</h1>
+    <h2 class="authentication-subtitle  authentication-subtitle--middle">INICIAR SESIÓN</h2>
+  </div>
+  <form class="autentication__form" [formGroup]="loginForm" >
+    <mat-form-field floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': loginErrors }"> <!-- se debe agregar clase mat-form-field-inval para lograr colorear el borde del campo a rojo **Creo que no es necesario, pero te lo dejo indicado-->
+      <input matInput [type]="email" placeholder="Usuario" formControlName="email">
+    </mat-form-field>
+    <mat-form-field floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': loginErrors }">
+      <input matInput [type]="hide ? 'text' : 'password'" placeholder="Contraseña" formControlName="password">
+      <mat-icon matSuffix (click)="hide = !hide" svgIcon="{{hide ? 'visibility-outline_off' : 'visibility-outline'}}"></mat-icon>
+    </mat-form-field>
+    <p class="fs-12px text-danger text-center mt-0" *ngIf="loginErrors">Usuario y/o contraseña incorrecto, favor de verificar.</p>
+    <button class="authentication__button" mat-raised-button color="primary" (click)="doLogin()" >Iniciar sesión</button>
+    <div class="authentication__inner-footer ml-auto">
+      <a class="authentication-gray-link" [routerLink]="['recover-password']">Olvidé mi contraseña</a>
+    </div>
+  </form>
+  <div class="authentication__map"></div>
+</div>

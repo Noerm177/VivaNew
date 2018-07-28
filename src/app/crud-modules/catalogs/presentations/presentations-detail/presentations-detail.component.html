@@ -1,0 +1,43 @@
+<div class="catalog-inner-header">
+    <div class="flex flex-align-items-center">
+      <h3 class="catalog__label-detail fs-16px">Detalle de la presentación</h3>
+    </div>
+    <div class="catalog__group-buttons">
+      <button mat-raised-button color="warn" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : !changeStatus }">Inhabilitar</button>
+      <button mat-raised-button color="primary" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : changeStatus }">Habilitar</button>
+      <button mat-raised-button color="primary" [routerLink]="['/main/presentations/edit']" [ngClass]="{ 'd-none' : !changeStatus }">Editar</button>
+    </div>
+</div>
+<div class="min-height-480px px-22px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Nombre:</p>
+      <p class="fs-12px">Pepino largo</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Fruto:</p>
+      <p class=" fs-12px">Pepino europeo</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Valor:</p>
+      <p class=" fs-12px">20</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Imagen:</p>
+      <div class="flex-column flex-completely-centered" *ngIf="imageUrl">
+        <div class="image-container"
+          [ngStyle]="{'background' : '#FFF url(' + imageUrl + ') center/cover no-repeat'}"></div>
+          <p class="text-center mb-0 mt-6px fs-12px">green-bg.png</p>
+      </div>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Precio:</p>
+      <p class=" fs-12px">$ 4.00</p>
+    </div>
+  </div>
+</div>
+

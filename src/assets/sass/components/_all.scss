@@ -1,0 +1,18 @@
+/**
+** Components: rich design UI styling. Class names here are more specific.
+** This layer usually has the biggest volume
+**/
+
+
+@import "material-components/all";
+@import "flexbox-grid";
+@import "breadcrumbs";
+@import "main-inner-wrapper";
+@import "catalogs/all";
+@import "input-filled";
+@import "line-separator";
+@import "figure-icon";
+@import "input-file-filled";
+@import "image-container";
+@import "static-page";
+@import "rounded-switch";

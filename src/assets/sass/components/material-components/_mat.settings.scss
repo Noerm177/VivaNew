@@ -1,0 +1,27 @@
+/*
+ * SETTINGS FOR CUSTOM MATERIAL COMPONENTS
+ */
+
+
+ $mat-control-border-color: rgba(61,61,61,0.6);
+ $mat-control-shadow-color:  $color-black;
+
+ /* mat-form field
+ ******************************************************************************/
+ $mat-input-padding-left: 10px;
+
+ /* mat-checkbox
+ ******************************************************************************/
+ $mat-checkbox-border-color:   $mat-control-border-color;
+ $mat-checkbox-border-width:   1px;
+ $mat-checkbox-border-radius:  10px;
+ $mat-checkbox-shadow: 0 0 3px 0 $mat-control-shadow-color;
+
+ $mat-checkbox-label-color: $color-gray-dark;
+ $mat-checkbox-label-font-size: 13px;
+ $mat-checkbox-label-font-weight: 500;
+
+ /* list component
+  ******************************************************************************/
+  $mat-list-item-height: 38px;
+  $mat-list-item-color:  $color-gray-dark;

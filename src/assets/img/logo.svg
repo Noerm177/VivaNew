@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="26px" viewBox="0 0 27 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>769B16C8-C6E0-4C84-B150-DA0D705AE9F4</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M25.5,37 C18.5964406,37 13,31.627417 13,25 C13,18.372583 18.5964406,13 25.5,13 C32.4035594,13 38,18.372583 38,25 C38,31.627417 32.4035594,37 25.5,37 Z M25.5,30 C28.5375661,30 31,27.5375661 31,24.5 C31,21.4624339 28.5375661,19 25.5,19 C22.4624339,19 20,21.4624339 20,24.5 C20,27.5375661 22.4624339,30 25.5,30 Z" id="path-1"></path>
+        <filter x="-8.0%" y="-4.2%" width="116.0%" height="116.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Inicio-de-sesión/-Cerrar-sesión" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="menu_colapsado" transform="translate(-12.000000, -13.000000)">
+            <g id="top/left">
+                <g id="logo_sidnav">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

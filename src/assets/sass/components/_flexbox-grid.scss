@@ -1,0 +1,88 @@
+/**
+ * BASIC FLEXBOX GRID
+ *
+ * flex shorthand
+ * flex-grow: 0
+ * flex-shrink: 1
+ + flex-basis: auto
+ */
+
+
+/* settings
+ ******************************************************************************/
+ $grid-columns: 12;
+ $grid-spacing: $main-content-spacing;
+
+ /**
+  * generate columns mixin
+  * @colums: number
+  * @size-variant: string
+  */
+
+ @mixin gridColumns($columns, $size-variant: "") {
+   @for $i from 1 through $columns {
+     .col#{ if($size-variant == "", unquote("-"), unquote("-#{$size-variant}-")) }#{$i} {
+       flex-basis: (100% / ($columns/$i));
+       max-width:  (100% / ($columns/$i));
+     }
+   }
+ }
+
+ /* component code
+  ******************************************************************************/
+ .grid-container,
+ .grid-row {
+   box-sizing: border-box;
+ }
+
+ .grid-container {
+   margin-right: auto;
+   margin-left: auto;
+   padding-right: $grid-spacing;
+   padding-left: $grid-spacing;
+ }
+
+ .grid-row {
+   display: flex;
+   flex: 0 1 auto;
+   flex-direction: row;
+   flex-wrap: wrap;
+   margin-right: -($grid-spacing/2);
+   margin-left: -($grid-spacing/2);
+ }
+
+ .col,
+ [class*="col-"] {
+   padding-left: ($grid-spacing/2);
+   padding-right: ($grid-spacing/2);
+   flex: 1;
+ }
+
+
+ // default colums
+ @include gridColumns($grid-columns);
+
+ // extra large breakpoint columns
+ @include mediaQuery(xl) {
+   @include gridColumns($grid-columns, "xl");
+ }
+
+ // large breakpoint columns
+ @include mediaQuery(lg) {
+   @include gridColumns($grid-columns, "lg");
+ }
+
+ // medium breakpoint columns
+ @include mediaQuery(md) {
+   @include gridColumns($grid-columns, "md");
+ }
+
+ // small breakpoint columns
+ @include mediaQuery(sm) {
+   @include gridColumns($grid-columns, "sm");
+ }
+
+ // extra small breakpoint columns
+ // @include mediaQuery(xs) {
+ //   @include gridColumns($grid-columns, "xs");
+ // }

@@ -1,0 +1,71 @@
+<!-- creation bar -->
+<header class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">Detalle de empaque</h3>
+  </div>
+
+  <div class="catalog__group-buttons">
+    <button mat-raised-button color="warn" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : !changeStatus }">Inhabilitar</button>
+    <button mat-raised-button color="primary" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : changeStatus }">Habilitar</button>
+    <button mat-raised-button color="primary" class="mat-button"
+    [routerLink]="['/main/packaging/edit']" [ngClass]="{ 'd-none' : !changeStatus }">Editar</button>
+  </div>
+</header>
+
+
+<section class="min-height-480px px-22px">
+  <div class="flex-wrap flex-align-items-center mb-30px">
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Nombre:</p>
+      <p class="fs-12px">Caja Tomate</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Código:</p>
+      <p class="fs-12px">0001</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Unidad de negocio:</p>
+      <p class="fs-12px">0001</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Material:</p>
+      <p class="fs-12px">Carton</p>
+    </div>
+  </div>
+
+  <div class="flex-wrap flex-align-items-center mb-30px">
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Cultivo:</p>
+      <p class="fs-12px">Tomate Cherry</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Categoria:</p>
+      <p class="fs-12px">Premium</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Nivel:</p>
+      <p class="fs-12px">2</p>
+    </div>
+
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Tiempo promedio:</p>
+      <p class="fs-12px">2:20</p>
+    </div>
+  </div>
+
+  <div class="flex-wrap flex-align-items-center mb-30px">
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Imagen:</p>
+      <div class="flex-column flex-completely-centered" *ngIf="imageUrl">
+        <div class="image-container"
+          [ngStyle]="{'background' : '#FFF url(' + imageUrl + ') center/cover no-repeat'}"></div>
+          <p class="text-center mb-0 mt-6px fs-12px">green-bg.png</p>
+      </div>
+    </div>
+  </div>
+</section>

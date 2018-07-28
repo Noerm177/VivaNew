@@ -1,0 +1,149 @@
+
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">{{ !editMode? 'Nueva actividad':'Editar actividad' }}</h3>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <button mat-button color="accent" class="mr-8px" [routerLink]="['/main/activities']">Cancelar</button>
+    <button mat-button mat-raised-button color="accent" [routerLink]="['/main/activities']">Guardar</button>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="editMode">
+    <button mat-raised-button color="warn" class="mr-8px mw-68px minw-68px" (click)="openDialog()"><mat-icon>delete</mat-icon></button>
+    <button mat-raised-button color="accent" class="mr-8px mat-button" [routerLink]="['/main/activities']">Cancelar</button>
+    <button  mat-raised-button color="primary" class="mat-button" [routerLink]="['/main/activities']">Actualizar</button>
+  </div>
+</div>
+
+<div class="px-22px pb-10px pt-18px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Unidad de negocio:</label>
+      <mat-form-field class="mat-rounded-select mt-6px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select>
+          <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Código: </label>
+      <div class="mw-100px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Rango:<span class="ml-16px">Del</span></label>
+      <div class="mr-15px mw-100px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+      <label [ngClass]="{ 'label-error': error }">Al</label>
+      <div class="mw-100px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Nombre: </label>
+      <div class="minw-210px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input type="text" matInput placeholder="Indicar nombre" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Tipo:</label>
+      <mat-form-field class="mat-rounded-select mt-6px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select>
+          <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Unidad:</label>
+      <div class="minw-210px">
+        <mat-form-field color="accent" class="catalog__search mat-form-field w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input type="text" placeholder="Buscar" aria-label="Unidad" matInput [matAutocomplete]="auto" [formControl]="searchControl" [(ngModel)]="value">
+          <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{ option }}</mat-option>
+          </mat-autocomplete>
+          <mat-icon class="cursor-pointer" matSuffix *ngIf="!value">search</mat-icon>
+          <button class="catalog__clear-search" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" [disabled]="!editMode ? false : true">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Costo:</label>
+      <div class="minw-140px flex-align-items-center">
+        <p class="m-0 fs-12px mr-8px">$</p>
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Descripción:</label>
+      <div class="minw-500px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput placeholder="Indicar descripción" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Cultivo:</label>
+      <div class="minw-500px">
+        <mat-form-field color="accent" class="catalog__search mat-form-field w-100" floatLabel="never">
+          <mat-chip-list #chipList>
+              <mat-chip
+                *ngFor="let fruit of fruits"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(fruit)"
+                color="primary" selected="true">
+                {{fruit}}
+                <mat-icon matChipRemove *ngIf="removable" svgIcon="borrar"></mat-icon>
+              </mat-chip>
+              <input placeholder="Buscar"
+                #fruitInput [formControl]="myControl" [matAutocomplete]="auto2" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"  (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                {{fruit}}
+              </mat-option>
+            </mat-autocomplete>
+          <mat-icon class="cursor-pointer" *ngIf="fruits.length == 0" matSuffix>search</mat-icon>
+          <button class="catalog__clear-search" mat-button *ngIf="fruits.length > 0" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="catalog-options-panel px-22px pb-10px">
+  <div class="catalog-options-panel__image-list mr-10">
+    <h3 class="fs-12px fw-light">Selecciona un icono</h3>
+    <div class="flex flex-wrap">
+      <figure class="figure-icon" *ngFor="let tile of tiles" [ngClass]="{ 'active' : tile.status , 'd-none' : tile.remember}" (click)="tile.status = !tile.status">
+        <mat-icon matListIcon svgIcon="{{tile.svg}}"></mat-icon>
+      </figure>
+    </div>
+  </div>
+  <div class="catalog-options-panel__image-list mw-40">
+    <h3 class="fs-12px fw-light">Usados anteriormente</h3>
+    <div class="flex flex-wrap">
+      <figure class="figure-icon" *ngFor="let tile of tiles" [ngClass]="{ 'active' : tile.status , 'd-none' : !tile.remember}" (click)="tile.status = !tile.status">
+        <mat-icon matListIcon svgIcon="{{tile.svg}}"></mat-icon>
+      </figure>
+    </div>
+  </div>
+</div>

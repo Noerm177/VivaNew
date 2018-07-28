@@ -1,0 +1,40 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail">Ubicación de la unidad de negocio:</h3>
+    <span class="pr-10px">Culiacán, Sinaloa</span>
+  </div>
+  <div class="catalog__group-buttons">
+    <button mat-raised-button color="warn" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : !changeStatus }">Inhabilitar</button>
+    <button mat-raised-button color="primary" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : changeStatus }">Habilitar</button>
+    <button mat-raised-button color="primary" (click)="_showPackageSection(true,8)" [ngClass]="{ 'd-none' : !changeStatus }">Editar</button>
+  </div>
+</div>
+<div class="grid-container">
+  <div class="grid-row">
+    <div class="col-7 col-md-12 catalog__canvas-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2756.976995511587!2d-107.61560188662237!3d24.918373167335503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86bcc10461ddad63%3A0x7aab5c996dec6946!2sPanteon+Tamarindo!5e1!3m2!1ses!2smx!4v1528859670019" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="col-5 col-md-12 pr-0">
+      <h3 class="catalog__title">Detalle de Empaque</h3>
+      <div class="catalog__data-detail">
+        <label>Nombre:</label>
+        <span>Empaque 1</span>
+      </div>
+      <div class="catalog__data-detail">
+        <label>Superficie total (mts&#178;):</label>
+        <span>1.33 km&#178; ( 14,271,119.85 pies&#178;)</span>
+      </div>
+      <div class="catalog__data-detail">
+        <label>Distancia total (km):</label>
+        <span>4.66 km (2.89 mi)</span>
+      </div>
+      <div class="catalog__group-buttons-line">
+        <button class="catalog__button rounded-btn" mat-button mat-raised-button color="accent" (click)="_showPackageSection(true,10)">
+          <mat-icon>add</mat-icon>
+          Agregar línea
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,51 @@
+<div class="main-inner-wrapper">
+  <app-message-bar *ngIf="showMessageBar"></app-message-bar>
+  <div class="breadcrumbs">
+    <a class="breadcrumbs__route">Perfil de usuario</a>
+    <mat-icon class="breadcrumbs__divider">navigate_next</mat-icon>
+    <a class="breadcrumbs__route">Información personal</a>
+  </div>
+
+  <mat-card class="catalog">
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Mi perfil">
+          <div class="catalog-inner-header">
+            <div class="flex flex-align-items-center">
+              <h3 class="catalog__label-detail fs-16px">Información personal</h3>
+            </div>
+
+            <div class="catalog__group-buttons">
+              <button mat-raised-button color="primary" class="mr-8px mat-button" [ngClass]="{ 'd-none' : changeStatus }" (click)="changeStatus = !changeStatus">Editar</button>
+              <button mat-button color="accent" class="mr-8px" [ngClass]="{ 'd-none' : !changeStatus }" (click)="changeStatus = !changeStatus">Cancelar</button>
+              <button mat-button mat-raised-button color="primary" [ngClass]="{ 'd-none' : !changeStatus }" (click)="changeStatus = !changeStatus">Actualizar</button>
+            </div>
+          </div>
+          <div class="min-height-480px px-22px">
+            <div class="profile-user flex flex-column">
+              <div class="flex">
+                <figure class="profile-user__avatar" [ngClass]="{ 'show-overlay' : changeStatus }">
+                  <a [routerLink]=""><img src="../../assets/img/icons/user.svg"></a>
+                  <div class="profile-user__overlay">
+                    <mat-icon>local_see</mat-icon>
+                  </div>
+                </figure>
+                <div class="flex flex-wrap">
+                  <div class="text-white flex-align-items-center mr-54px">
+                    <p class="mr-20px fs-12px">Usuario:</p>
+                    <p class="fs-12px">Daniel Habraham Castillo</p>
+                  </div>
+                  <div class="text-white flex-align-items-center mr-54px">
+                    <p class="mr-20px fs-12px">Puesto:</p>
+                    <p class=" fs-12px">Supervisor Junior</p>
+                  </div>
+                </div>
+              </div>
+              <h3 class="profile-user__link" *ngIf="changeStatus"><a (click)="openDialog()">Cambiar contraseña</a></h3>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

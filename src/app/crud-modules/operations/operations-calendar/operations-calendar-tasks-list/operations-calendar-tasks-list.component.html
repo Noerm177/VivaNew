@@ -1,0 +1,15 @@
+<!-- task list component -->
+<div class="calendar-inner-list">
+  <div class="flex flex-completely-centered bottom-border max-height-36px">
+    <mat-form-field color="accent" class="catalog__search mat-form-field" floatLabel="never">
+      <input type="text" placeholder="Buscar" matInput autocomplete="off">
+      <mat-icon class="cursor-pointer" matSuffix *ngIf="!value">search</mat-icon>
+      <button class="catalog__clear-search" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="_clearFilter()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-icon-button class="mat-button">
+      <mat-icon aria-label="Add">add</mat-icon>
+    </button>
+  </div>
+</div>

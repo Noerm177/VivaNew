@@ -1,0 +1,7 @@
+<div class="breadcrumbs">
+    <a class="breadcrumbs__route">{{breadcrumbItems.rootTitle}}</a>
+    <mat-icon class="breadcrumbs__divider">navigate_next</mat-icon>
+    <a class="breadcrumbs__route cursor-default" (click)="goTo()" > {{breadcrumbItems.firstTitle}}</a>
+    <mat-icon class="breadcrumbs__divider" *ngIf="breadcrumbs != ''" >navigate_next</mat-icon>
+    <a class="breadcrumbs__route cursor-default" *ngIf="breadcrumbs != ''">{{breadcrumbs}}</a>
+  </div>

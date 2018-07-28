@@ -1,0 +1,19 @@
+<div class="main-inner-wrapper">
+  <app-message-bar></app-message-bar>
+  <div class="breadcrumbs">
+    <a class="breadcrumbs__route">Catálogos</a>
+    <mat-icon class="breadcrumbs__divider">navigate_next</mat-icon>
+    <a class="breadcrumbs__route" [routerLink]="['/main/activities']">Actividades</a>
+  </div>
+
+  <mat-card class="catalog">
+    <mat-card-content class="relative">
+      <mat-progress-bar class="catalog-loader" mode="indeterminate" [ngClass]="{ 'hidden': !showProgressBar }"></mat-progress-bar>
+      <mat-tab-group>
+        <mat-tab label="Actividades">
+          <router-outlet></router-outlet>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

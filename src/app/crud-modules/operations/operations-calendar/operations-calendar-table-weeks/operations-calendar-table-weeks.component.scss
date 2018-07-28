@@ -1,0 +1,46 @@
+
+/* import settings
+ ******************************************************************************/
+ @import '../../../../../assets/sass/settings/all';
+
+.calendar-table{
+  width: 100%;
+
+  tbody:before { // to add spacing between thead/ tbody
+      content: "-";
+      display: block;
+      line-height: 10px;
+      color: transparent;
+  }
+  th{
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.08px;
+    line-height: 14px;
+    height: 36px;
+    border-bottom-color: $color-brand-accent-900;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    &.active{
+      font-weight: 900px;
+    }
+  }
+  td{
+    padding: 6px;
+  }
+  th, td{
+    text-align: center;
+  }
+
+  &__item{
+    border: 2px solid $color-brand-accent-900;
+    justify-content: space-around;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    position: relative;
+
+    &.empty{
+      background-color: $color-brand-accent-900;
+    }
+  }
+}

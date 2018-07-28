@@ -1,0 +1,22 @@
+/*
+ * ANGULAR MATERIAL CUSTOM THEME
+ * documentation: https://material.angular.io/guide/theming
+ */
+
+
+// angular core
+@import '~@angular/material/theming';
+
+// angular material core mixin
+@include mat-core();
+
+// mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700)
+$vivaorganica-primary: mat-palette($primary-color-palette, 500, 300, 700); // primary color
+$vivaorganica-accent:  mat-palette($accent-color-palette, 500, A200, A400); // accent color
+$vivaorganica-warn:    mat-palette($warn-color-palette); // warn color
+
+// Create the theme object (a Sass map containing all of the palettes).
+$vivaorganica-theme: mat-light-theme($vivaorganica-primary, $vivaorganica-accent, $vivaorganica-warn);
+
+// Include theme styles for core and each component used in your app.
+@include angular-material-theme($vivaorganica-theme);

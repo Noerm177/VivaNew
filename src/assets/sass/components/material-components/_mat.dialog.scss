@@ -1,0 +1,77 @@
+/*
+ * MAT DIALOG
+ * base styles for material dialog components
+ */
+
+.cdk-overlay-dark-backdrop {
+  background-color: rgba(#181818, .5);
+}
+
+// material dialog components
+.mat-dialog-container {
+  background-color: $color-gray-dark;
+  color: $color-white;
+  text-align: center;
+  box-shadow: 0 0 4px 0 rgba($color-black, 0.5);
+
+  .mat-dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .mat-dialog-content {
+    padding: 0 50px;
+  }
+
+  .mat-dialog-actions {
+    padding: 0;
+    margin-top: 22px;
+    margin-bottom: 0;
+    justify-content: center;
+  }
+
+  .mat-raised-button {
+    line-height: 42px;
+    border-radius: 22px;
+    min-width: 180px;
+    border: 1px solid $color-gray-cod;
+    font-size: 19px;
+    font-weight: bold;
+  }
+
+  .mat-raised-button:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+  }
+
+  .mat-dialog-actions .mat-raised-button + .mat-raised-button {
+    margin-left: 12px;
+  }
+}
+
+// custom components for material dialog
+.mat-dialog-header-icon {
+  background-size: 87px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto 30px;
+  height: 87px;
+  width: 87px;
+
+  &.alert-icon {
+    background-image: url("/assets/img/dialogs/alert_icon.svg");
+  }
+  &.success-icon {
+    background-image: url("/assets/img/dialogs/success_icon.svg");
+  }
+  &.warning-icon {
+    background-image: url("/assets/img/dialogs/warning_icon.svg");
+  }
+}
+
+.mat-dialog-message {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.15;
+}

@@ -1,0 +1,84 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">{{ !editMode? 'Nueva base':'Editar base' }}</h3>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <button mat-button color="accent" class="mr-8px" [routerLink]="['/main/ground']">Cancelar</button>
+    <button mat-button mat-raised-button color="accent" [routerLink]="['/main/ground']">Crear</button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="editMode">
+    <button mat-raised-button color="warn" class="mr-8px mw-68px minw-68px" (click)="openDialog()"><mat-icon>delete</mat-icon></button>
+    <button mat-raised-button color="accent" class="mr-8px mat-button" [routerLink]="['/main/ground/']">Cancelar</button>
+    <button mat-button mat-raised-button color="primary" [routerLink]="['/main/ground/']">Actualizar</button>
+  </div>
+</div>
+
+<div class="min-height-480px px-22px pt-18px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Nombre: </label>
+      <mat-form-field color="accent" class="mat-form-field-filled  minw-210px ml-21px"
+        floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <input type="text" matInput placeholder="Indicar nombre" autocomplete="off">
+      </mat-form-field>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Descripción:</label>
+      <div class="minw-500px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput placeholder="Indicar descripción" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Tipo: </label>
+      <mat-form-field class="mat-rounded-select minw-220px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select (selectionChange)="selectedMethod($event)">
+          <mat-option value="1">Suelo</mat-option>
+          <mat-option value="2">Sustrato</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="flex-wrap">
+    <div class="catalog__input mr-28px mt-10px" *ngIf="valueSelected == 'clasificacion'">
+      <label [ngClass]="{ 'label-error': error }">Clasificación: </label>
+      <mat-form-field class="mat-rounded-select minw-220px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select>
+          <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="catalog__input mr-28px" *ngIf="valueSelected == 'sustrato'">
+      <label [ngClass]="{ 'label-error': error }">Componentes:</label>
+      <div class="minw-210px">
+        <mat-form-field color="accent" class="catalog__search mat-form-field w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input type="text" placeholder="Buscar" aria-label="Componentes" matInput [matAutocomplete]="auto" [formControl]="searchControl" [(ngModel)]="value">
+          <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{ option }}</mat-option>
+          </mat-autocomplete>
+          <mat-icon class="cursor-pointer" matSuffix *ngIf="!value">search</mat-icon>
+          <button class="catalog__clear-search" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" [disabled]="!editMode ? false : true">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="accent" class="catalog__add-input mat-button">
+        <mat-icon class="fs-14px" aria-label="add">add</mat-icon>
+      </button>
+    </div>
+    <!-- inicia component a ser clonado ; incluye la clase catalog__input-bullet para agregar bullets entre cada componente-->
+    <div class="catalog__input catalog__input-bullet relative ml-10px mr-28px" *ngIf="valueSelected == 'sustrato' && value">
+      <label [ngClass]="{ 'label-error': error }">Label agregado:</label>
+      <div class="mw-75px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- termina component a ser clonado -->
+  </div>
+</div>

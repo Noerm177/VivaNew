@@ -1,0 +1,22 @@
+/*
+ * RESPONSIVE MEDUA QUERIES
+ */
+
+
+ @mixin mediaQuery($size) {
+  @if $size == "xl" {
+    @media screen and (min-width: $lg-breakpoint) { @content; }
+  }
+  @else if $size == "lg" {
+    @media screen and (max-width: $lg-breakpoint) and (min-width: $md-breakpoint) { @content; }
+  }
+  @else if $size == "md" {
+    @media screen and (max-width: $md-breakpoint) { @content; }
+  }
+  @else if $size == "sm" {
+    @media screen and (max-width: $sm-breakpoint) { @content; }
+  }
+  @else if $size == "xs" {
+    @media screen and (max-width: $xs-breakpoint) { @content; }
+  }
+}

@@ -1,0 +1,16 @@
+/**
+ * figure icon styles
+ *
+*/
+.figure-icon{
+  align-items: center;
+  background-color: $color-gray-light-b;
+  border: 1px solid $color-brand-accent-900;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 2.5px;
+  .mat-icon .mat-icon-svg{
+    fill: $color-brand-accent-900;
+  }
+}

@@ -1,0 +1,29 @@
+/**
+ * MAT-BUTTON-TOGGLE
+ */
+
+
+mat-button-toggle-group.mat-button-toggle-group {
+  box-shadow: none;
+}
+
+.mat-button-toggle {
+  color: $color-white;
+  background-color: $color-brand-accent;
+  border: 1px solid $color-gray-cod;
+  margin-right: 6px;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .mat-button-toggle-label-content {
+    line-height: 34px;
+    padding: 0 13px;
+  }
+
+  // checked state
+  &.mat-button-toggle-checked {
+    background-color: $color-brand-primary;
+    border-color: $jacksons-purple;
+  }
+}

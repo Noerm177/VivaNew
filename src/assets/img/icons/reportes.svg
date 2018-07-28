@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="18px" viewBox="0 0 15 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>A1300582-59A1-49F4-9B0D-49E755128639</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Inicio-de-sesión/-Cerrar-sesión" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.8">
+        <g id="menu_colapsado" transform="translate(-18.000000, -367.000000)">
+            <g id="reportes" transform="translate(15.000000, 365.000000)">
+                <polygon id="Shape" points="0 0 21 0 21 22 0 22"></polygon>
+                <path d="M18,7 L15.365625,7 C14.94375,6.22 14.3625,5.55 13.659375,5.04 L15.1875,3.41 L13.865625,2 L11.83125,4.17 C11.4,4.06 10.959375,4 10.5,4 C10.040625,4 9.6,4.06 9.178125,4.17 L7.134375,2 L5.8125,3.41 L7.33125,5.04 C6.6375,5.55 6.05625,6.22 5.634375,7 L3,7 L3,9 L4.959375,9 C4.9125,9.33 4.875,9.66 4.875,10 L4.875,11 L3,11 L3,13 L4.875,13 L4.875,14 C4.875,14.34 4.9125,14.67 4.959375,15 L3,15 L3,17 L5.634375,17 C6.609375,18.79 8.41875,20 10.5,20 C12.58125,20 14.390625,18.79 15.365625,17 L18,17 L18,15 L16.040625,15 C16.0875,14.67 16.125,14.34 16.125,14 L16.125,13 L18,13 L18,11 L16.125,11 L16.125,10 C16.125,9.66 16.0875,9.33 16.040625,9 L18,9 L18,7 Z M12.375,15 L8.625,15 L8.625,13 L12.375,13 L12.375,15 Z M12.375,11 L8.625,11 L8.625,9 L12.375,9 L12.375,11 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

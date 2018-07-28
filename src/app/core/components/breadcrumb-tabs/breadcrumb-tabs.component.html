@@ -1,0 +1,6 @@
+<div class="breadcrumbs">
+  <div class="flex flex-align-items-center" *ngFor="let item of items; let i = index">
+    <a class="breadcrumbs__route" (click)="goTo(item.url)">{{item.title}}</a>
+    <mat-icon class="breadcrumbs__divider" *ngIf="!isLastItem(i)">navigate_next</mat-icon>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="main-inner-wrapper">
+
+    <!-- Message bar, show success messages -->
+    <app-message-bar *ngIf="showMessageBar"></app-message-bar>
+
+    <!-- Breadcrumbs -->
+    <app-breadcrumb-tabs [items]="breadcrumbsItems"></app-breadcrumb-tabs>
+
+    <!-- Tabs -->
+    <mat-card class="catalog">
+      <mat-card-content class="relative">
+        <div [hidden]="!isLoading">
+          <mat-progress-bar class="catalog-loader" mode="indeterminate" ></mat-progress-bar>
+        </div>
+
+        <mat-tab-group (selectedTabChange)="onTabChange($event)" [selectedIndex]="selectedIndex">
+
+          <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+            <app-business-unit-main-detail *ngIf="tab === 'Unidades de negocio'"></app-business-unit-main-detail>
+            <lot-list *ngIf="tab === 'Lotes'" (showLot)="receiveClick($event,1)"></lot-list>
+            <lot-form *ngIf="tab === 'Nuevo lote'"  [editMode]="false"></lot-form>
+            <lot-detail *ngIf="tab === 'Lote Detalle'" ></lot-detail>
+            <lot-form *ngIf="tab === 'Edición de Lote'" [editMode]="true"></lot-form>
+            <stages-list *ngIf="tab === 'Etapas'"></stages-list>
+            <packages-list *ngIf="tab === 'P. de empaques'"></packages-list>
+            <packages-form *ngIf="tab === 'Nueva P. de empaques'"></packages-form>
+            <packages-form  *ngIf="tab === 'Edición de Planta de C.S.'"[editMode]="true"></packages-form>
+            <packages-detail *ngIf="tab === 'Planta de C.S.'" ></packages-detail>
+            <lines-list *ngIf="tab === 'Líneas'" ></lines-list>
+            <lines-form *ngIf="tab === 'Nueva línea'" ></lines-form>
+          </mat-tab>
+
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </div>

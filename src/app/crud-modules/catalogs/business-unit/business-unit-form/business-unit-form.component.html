@@ -1,0 +1,55 @@
+<div class="catalog-inner-header">
+  <form class="flex flex-align-items-center">
+    <h3 class="catalog__label">Selecciona unidad de negocio:</h3>
+
+    <mat-form-field color="accent" class="catalog__search mat-form-field" floatLabel="never">
+      <input type="text" placeholder="Buscar" aria-label="Unidad" matInput #searchInput>
+      <mat-icon class="cursor-pointer" matSuffix >search</mat-icon>
+    </mat-form-field>
+  </form>
+  <div class="catalog__actions-buttons">
+    <button mat-button mat-icon-button (click)="startDrawing()">
+      <mat-icon aria-label="Nodos" svgIcon="nodos"></mat-icon>
+    </button>
+    <button mat-button mat-icon-button (click)="delete()">
+      <mat-icon aria-label="Borrar" svgIcon="borrar"></mat-icon>
+    </button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <button [routerLink]="['/main/business-unit']" class="mr-8px" mat-button color="accent" [disabled]="isLoading">Cancelar</button>
+    <button mat-button mat-raised-button color="accent" (click)="createOrEditBusinessUnit()" type="submit" form="businessUnitForm" [disabled]="isLoading">Crear</button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="editMode">
+    <button [routerLink]="['/main/business-unit-detail',id]" class="mr-8px" mat-button color="accent">Cancelar</button>
+    <button  mat-raised-button color="primary" (click)="createOrEditBusinessUnit()"  [disabled]="isLoading" class="mat-button">Actualizar</button>
+  </div>
+</div>
+
+<div class="grid-container">
+  <div class="grid-row">
+    <!-- Map -->
+    <div class="col-7 col-lg-12 catalog__canvas-map">
+      <app-map (drawingFinish)="onDrawingFinish($event)" [input]="searchInput"></app-map>
+    </div>
+    <!-- Form -->
+    <div class="col col-lg-12 pr-0">
+      <form [formGroup]="businessUnitForm" id="businessUnitForm">
+        <h3 class="catalog__title">Información de la unidad de negocio</h3>
+        <div class="catalog__input">
+          <label [ngClass]="{ 'label-error': errors.name }">Nombre de la unidad de negocio:</label>
+          <mat-form-field color="accent" class="mat-form-field-filled flex-60" floatLabel="never">
+            <input matInput placeholder="Escribe un nombre para la unidad…" autocomplete="off" formControlName="name" >
+          </mat-form-field>
+        </div>
+        <div class="catalog__input">
+          <label [ngClass]="{ 'label-error': errors.surface }">Superficie total (mts&#178;):</label>
+            <input readonly class="flex-60 input-filled input-filled--acent" placeholder="0 km&#178; ( 0 pies&#178;)" formControlName="surface" [ngClass]="{ 'field-invalid': errors.surface }">
+        </div>
+        <div class="catalog__input">
+          <label [ngClass]="{ 'label-error': errors.perimeter }">Distancia total (km):</label>
+            <input readonly class="flex-60 input-filled input-filled--acent" placeholder="0 km (0 mi)" formControlName="perimeter" [ngClass]="{ 'field-invalid': errors.perimeter }">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

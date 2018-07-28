@@ -1,0 +1,156 @@
+<!-- creation bar -->
+<header class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">{{ isEditionMode ? 'Editar empaque' : 'Nuevo empaque'}}</h3>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="!isEditionMode">
+    <button mat-button color="accent" class="mr-8px" [routerLink]="['/main/packaging']">Cancelar</button>
+    <button mat-raised-button color="accent" class="mat-button" [routerLink]="['/main/packaging']">Guardar</button>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="isEditionMode">
+    <button mat-raised-button color="warn" class="mr-8px mw-68px minw-68px" (click)="openDialog()"><mat-icon>delete</mat-icon></button>
+    <button mat-raised-button color="accent" class="mr-8px mat-button" [routerLink]="['/main/packaging']">Cancelar</button>
+    <button mat-raised-button color="primary" class="mat-button" [routerLink]="['/main/packaging']">Actualizar</button>
+  </div>
+</header>
+
+<section [formGroup]="packagingForm" class="px-22px pt-10px min-height-480px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Nombre: </label>
+      <div class="catalog__input-field minw-235px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never"
+          [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput placeholder="Indica nombre para el empaque" autocomplete="off"
+            formControlName="name">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Código: </label>
+      <div class="catalog__input-field">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100 mw-85px" floatLabel="never"
+          [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" placeholder="0" matInput autocomplete="off" formControlName="code">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Unidad de negocio: </label>
+      <div class="catalog__input-field">
+        <mat-form-field color="accent" class="catalog__search mat-form-field w-100"
+          floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput type="text" placeholder="Buscar" aria-label="Unidad"
+            formControlName="bussinnesUnit">
+
+          <mat-icon class="cursor-pointer" matSuffix *ngIf="!packagingForm.value.bussinnesUnit">search</mat-icon>
+
+          <button class="catalog__clear-search"
+            mat-button matSuffix mat-icon-button aria-label="Clear"
+            *ngIf="packagingForm.value.bussinnesUnit"
+            (click)="clearBusinessInput()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Material: </label>
+      <div class="catalog__input-field">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100 minw-194px" floatLabel="never"
+          [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput placeholder="Agrega el tipo de material" autocomplete="off"
+          formControlName="material">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-wrap flex-align-items-center">
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Cultivo: </label>
+      <div class="catalog__input-field">
+        <mat-form-field color="accent" class="mat-rounded-select mw-160px"
+          [ngClass]="{ 'mat-form-field-invalid': error }" floatLabel="never">
+          <mat-select placeholder="Elegir fruto" formControlName="crop">
+            <mat-option value="1">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Peso: </label>
+      <div class="catalog__input-field">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100 mw-75px" floatLabel="never"
+          [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input matInput autocomplete="off" formControlName="weight">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Categoria: </label>
+      <div class="catalog__input-field flex-completely-centered flex-column minw-68px">
+        <mat-slide-toggle formControlName="category" color="primary"></mat-slide-toggle>
+        <p class="mt-6px mb-0 fw-bold text-uppercase fs-10px">
+          {{ packagingForm.value.category ? 'Premium' : 'Estándar' }}
+        </p>
+      </div>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Nivel de complejidad: </label>
+      <div class="catalog__input-field">
+        <mat-button-toggle-group formControlName="complexityLevel">
+          <mat-button-toggle [value]="level" *ngFor="let level of complexityLevelOptions">{{level}}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Tiempo promedio: </label>
+      <div class="flex-align-items-center">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100 mw-42px" floatLabel="never"
+          [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input class="p-0 text-center" matInput autocomplete="off"
+            formControlName="averageTimeHours">
+        </mat-form-field>
+
+        <p class="m-0 px-6px fs-12px">:</p>
+
+        <mat-form-field color="accent" class="mat-form-field-filled w-100 mw-42px" floatLabel="never"
+          [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input class="p-0 text-center" matInput autocomplete="off"
+          formControlName="averageTimeMinutes">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-wrap flex-align-items-center">
+    <div class="catalog__input">
+      <label [ngClass]="{ 'label-error': error }">Imagen: </label>
+
+      <div class="flex-column flex-completely-centered mr-28px">
+        <div class="image-container"
+          [ngStyle]="{'background' : '#FFF url(' + imageUrl + ') center/cover no-repeat'}"></div>
+          <p class="text-center mb-0 mt-6px fs-12px">green-bg.png</p>
+      </div>
+
+      <button mat-button color="accent" class="minw-222px"
+        (click)="file.click()">
+        Cargar imagen
+      </button>
+
+      <input [hidden]="true" type="file" #file>
+    </div>
+  </div>
+</section>
+

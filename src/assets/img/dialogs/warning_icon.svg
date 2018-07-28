@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>5288D90E-FCE4-4216-9F9D-7A5E488A069A</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Unidades-de-negocio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="1">
+        <g id="inhabilitada" transform="translate(-555.000000, -411.000000)">
+            <g id="inhabilitado_icon" transform="translate(545.000000, 401.000000)">
+                <polygon id="Shape" points="0 0 120 0 120 120 0 120"></polygon>
+                <path d="M59.95,10 C32.35,10 10,32.4 10,60 C10,87.6 32.35,110 59.95,110 C87.6,110 110,87.6 110,60 C110,32.4 87.6,10 59.95,10 Z M60,100 C37.9,100 20,82.1 20,60 C20,37.9 37.9,20 60,20 C82.1,20 100,37.9 100,60 C100,82.1 82.1,100 60,100 Z" id="Shape" fill="#ff001f" fill-rule="nonzero"></path>
+                <polygon id="Path" fill="#ff001f" points="94 87.4694737 87.4694737 94 61.5789474 68.1094737 55.0484211 61.5789474 28 34.5305263 34.5305263 28 61.5789474 55.0484211 68.1094737 61.5789474"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

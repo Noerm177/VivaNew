@@ -1,0 +1,74 @@
+<div class="catalog-inner-header">
+  <div class="flex flex-align-items-center">
+    <h3 class="catalog__label-detail fs-16px">{{ !editMode? 'Nueva presentación':'Editar presentación' }}</h3>
+  </div>
+
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <button mat-button color="accent" class="mr-8px" [routerLink]="['/main/presentations']">Cancelar</button>
+    <button mat-button mat-raised-button color="accent" [routerLink]="['/main/presentations']">Crear</button>
+  </div>
+  <div class="catalog__group-buttons" *ngIf="editMode">
+    <button mat-raised-button color="accent" class="mr-8px mat-button" [routerLink]="['/main/presentations/']">Cancelar</button>
+    <button mat-raised-button color="primary" class="mat-button" [routerLink]="['/main/presentations/']">Actualizar</button>
+  </div>
+</div>
+
+<div class="min-height-480px px-22px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Nombre: </label>
+      <div class="minw-210px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input type="text" matInput placeholder="Indicar nombre" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Fruto: </label>
+      <mat-form-field class="mat-rounded-select mt-6px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select>
+          <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Valor:</label>
+      <div class="mw-120px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="1" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="flex-wrap flex-align-items-center">
+      <div class="catalog__input mr-28px">
+        <label [ngClass]="{ 'label-error': error }">Imagen (Opcional):</label>
+
+        <div class="flex-column flex-completely-centered mr-28px">
+          <div class="image-container"
+            [ngStyle]="{'background' : '#FFF url(' + imageUrl + ') center/cover no-repeat'}"></div>
+            <p class="text-center mb-0 mt-6px fs-12px">green-bg.png</p>
+        </div>
+
+        <button mat-button color="accent" class="minw-222px"
+          (click)="file.click()">
+          Cargar imagen
+        </button>
+
+        <input [hidden]="true" type="file" #file>
+      </div>
+    </div>
+
+
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Precio:</label>
+      <div class="mw-75px">
+        <mat-form-field color="accent" class="mat-form-field-filled w-100" floatLabel="never" [ngClass]="{ 'mat-form-field-invalid': error }">
+          <input (keypress)="_keyPress($event)" matInput placeholder="0" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+  </div>
+</div>

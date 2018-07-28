@@ -1,0 +1,84 @@
+/*
+  Expansion panel custom styles
+
+*/
+
+.mat-expansion-panel {
+  background: transparent;
+  margin-right: 15px!important;
+
+  /* header styles */
+  .mat-expansion-panel-header{
+    border-color: $color-brand-accent-900;
+    &.mat-expanded{
+      max-height: 48px;
+    }
+    .mat-content{
+      align-items: center;
+    }
+  }
+
+  /* content styles*/
+  .mat-expansion-panel-content{
+    border-color: transparent;
+    margin-top: 4px;
+    &.mat-expanded{
+      border-color: $color-brand-primary;
+    }
+
+    //table styles restore
+    table, .mat-table{
+      box-shadow: none; // this is necessary to catalog tables
+
+      tr.mat-header-row {
+        height: 33px;
+        .mat-header-cell{
+          border-bottom-color: $color-brand-accent-900;
+        }
+      }
+      tr.mat-row{
+        background-color: $color-brand-accent;
+        height: 22px;
+
+        &:nth-child(odd) {
+            background-color: $color-gray-dark-b;
+        }
+      }
+    }
+  }
+  .mat-expansion-panel-header,
+  .mat-expansion-panel-header-title,
+  .mat-expansion-panel-header-description,
+  .mat-expansion-indicator::after{
+    color: $color-white;
+  }
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+
+  // header and content border styles
+  .mat-expansion-panel-header, .mat-expansion-panel-content{
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+  }
+
+
+  /* set margins */
+  &:not(.mat-expansion-panel-spacing){
+    margin-bottom: 16px;
+  }
+  &.mat-expansion-panel-spacing {
+    margin-bottom: 4px;
+  }
+
+  /* margin to first item */
+  &:first-child{
+    margin-top: 16px!important;
+  }
+
+  /* remove box-shadow*/
+  &:not([class*=mat-elevation-z]) {
+    box-shadow: none!important;
+  }
+}

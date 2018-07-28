@@ -1,0 +1,27 @@
+.catalog-accordion{
+  &__header-column{
+    align-items: center;
+    display: flex;
+    min-width: 225px;
+
+    .mat-icon{
+      font-size: 30px;
+      min-width: 42px;
+    }
+    p{
+      font-size: 16px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    span{
+      font-size: 21px;
+    }
+
+  }
+  .mat-expansion-panel-header{
+   .mat-button{
+      margin-left: auto!important;
+      margin-right: 20px;
+    }
+  }
+}

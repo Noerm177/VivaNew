@@ -1,0 +1,18 @@
+<div class="main-inner-wrapper">
+  <app-message-bar></app-message-bar>
+
+  <app-breadcrum [breadcrumbItems]="breadcrum"> </app-breadcrum>
+
+  <mat-card class="catalog">
+    <mat-card-content class="relative">
+      <div [hidden]="!isLoading">
+        <mat-progress-bar class="catalog-loader" mode="indeterminate" ></mat-progress-bar>
+      </div>
+      <mat-tab-group>
+        <mat-tab label="Unidades de Negocio">
+          <router-outlet></router-outlet>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

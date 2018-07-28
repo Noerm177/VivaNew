@@ -1,0 +1,47 @@
+/*
+ * CATALOG TABLE FOOTER
+ * styles for table footer elements
+ */
+
+
+ .catalog-table-footer {
+  align-items: center;
+  background-color: $table-footer-bg-color;
+  display: flex;
+
+  &__message {
+    font-size: $table-footer-font-size;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .catalog-pagination {
+    align-items: center;
+    display: flex;
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: 20px;
+
+    &__item{
+      margin-right: 5px;
+      .catalog-pagination__button{
+        background-color: transparent!important;
+        font-size: $table-footer-font-size;
+        height: 35px;
+        width: 35px;
+        .mat-button-wrapper{
+          line-height: 20px!important;
+        }
+      }
+    }
+
+    &__item.active .mat-fab.catalog-pagination__button,
+    &__item .mat-fab.catalog-pagination__button:hover{
+      background-color: $color-brand-primary!important;
+    }
+
+    &__button.mat-fab.mat-accent{
+      box-shadow: none!important;
+    }
+  }
+}

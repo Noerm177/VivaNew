@@ -1,0 +1,14 @@
+<mat-dialog-content>
+  <div class="mat-dialog-header-icon {{ dialogIcon }}"></div>
+  <h2 mat-dialog-title>{{ dialogTitle }}</h2>
+  <p class="mat-dialog-message">{{ dialogMessage }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" (click)="close()">
+    {{ dialogCancelBtnMsg }}
+  </button>
+  <button mat-raised-button color="{{dialogColor}}" (click)="accept()">
+    {{ dialogAcceptBtnMsg }}
+  </button>
+</mat-dialog-actions>

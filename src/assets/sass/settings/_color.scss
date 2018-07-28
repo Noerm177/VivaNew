@@ -1,0 +1,56 @@
+/*
+ * GLOBAL COLOR SETTINGS
+ * color setting for all components
+ */
+
+ @import '../tools/all';
+
+ /* no semantic colors
+  ******************************************************************************/
+  $mine-shaft-b:    #343434;
+  $mine-shaft:      #3D3D3D;
+  $athens-gray:     #EFF2F5;
+  $silver:          #c5c5c5;
+  $mercury:         #E3E1E1;
+  $port-gore:       #28255F;
+  $jacksons-purple: #204495;
+  $cod-gray:        #181818;
+  $dusty-gray:      #999999;
+  $malibu:          #49D4FF;
+  $bright-sun:      #FEDC3B;
+  $coral:           #FF7C59;
+
+  /* brand colors
+  ******************************************************************************/
+  $color-brand-primary:     getMapValue($primary-color-palette, 500);
+  $color-brand-accent:      getMapValue($accent-color-palette, 500); // #272727
+  $color-brand-warn:        getMapValue($warn-color-palette, 500);
+
+  $color-brand-accent-400:      getMapValue($accent-color-palette, 400);
+  $color-brand-accent-900:      getMapValue($accent-color-palette, 900);
+
+  /* gray scale
+  ******************************************************************************/
+  $color-white:         #FFF;
+  $color-black:         #000;
+
+  $color-gray-cod:  $cod-gray;
+  $color-gray-dark-b: $mine-shaft-b;
+  $color-gray-dark: $mine-shaft;
+  $color-gray-light: $silver;
+  $color-gray-light-b: $mercury;
+  $color-white-60: $dusty-gray;
+
+  $color-gray-light-bg: $athens-gray;
+
+  /* others colors
+  ******************************************************************************/
+  $color-blue-dark:     $jacksons-purple;
+  $color-dark-purple:   $port-gore;
+  $color-yellow:        $bright-sun;
+
+  /* state colors
+  ******************************************************************************/
+  $color-brand-success: $malibu;
+  $color-brand-danger: $color-brand-warn;
+  $color-brand-warning: $coral;

@@ -1,0 +1,8 @@
+
+describe('InvasiveLoaderComponent', () => {
+
+  beforeEach(() => {
+
+  });
+
+});

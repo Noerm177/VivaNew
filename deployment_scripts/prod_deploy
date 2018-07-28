@@ -1,0 +1,9 @@
+ssh -i "~/vivaorganica-amazon-keypair.pem" ec2-user@ec2-54-67-21-144.us-west-1.compute.amazonaws.com \
+'
+cd vivaorganica_frontend \
+&& git pull \
+&& docker-compose down \
+&& docker image rm vivaorganica_frontend_web -f \
+&& docker-compose -f docker-compose-prod.yml up -d web \
+&& docker container ls
+'

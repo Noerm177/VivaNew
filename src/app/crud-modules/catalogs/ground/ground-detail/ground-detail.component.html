@@ -1,0 +1,38 @@
+<div class="catalog-inner-header">
+    <div class="flex flex-align-items-center">
+      <h3 class="catalog__label-detail fs-16px">Detalle de suelo</h3>
+    </div>
+    <div class="catalog__group-buttons">
+      <button mat-raised-button color="warn" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : !changeStatus }">Inhabilitar</button>
+      <button mat-raised-button color="primary" class="mr-8px mat-button" (click)="openDialog()" [ngClass]="{ 'd-none' : changeStatus }">Habilitar</button>
+      <button mat-raised-button color="primary" [routerLink]="['/main/ground/edit']" [ngClass]="{ 'd-none' : !changeStatus }">Editar</button>
+    </div>
+</div>
+<div class="min-height-480px px-22px">
+  <div class="flex-wrap flex-align-items-center">
+    <div class="text-white mw-350px flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Nombre</p>
+      <p class="fs-12px">Suelo </p>
+    </div>
+    <div class="text-white mw-350px flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Descripción</p>
+      <p class="fs-12px"> ---------- </p>
+    </div>
+    <div class="text-white flex-align-items-center mr-54px">
+      <p class="mr-20px fs-12px">Tipo:</p>
+      <p class="fs-12px" *ngIf="groundMode">Suelo</p>
+      <p class="fs-12px" *ngIf="!groundMode">Sustrato</p>
+    </div>
+
+    <div class="text-white mw-350px flex-align-items-center mr-54px" *ngIf="groundMode">
+      <p class="mr-20px fs-12px">Clasificación:</p>
+      <p class="fs-12px">Arenoso</p>
+    </div>
+
+    <div class="text-white mw-350px flex-align-items-center mr-54px" *ngIf="!groundMode">
+      <p class="mr-20px fs-12px">Componentes:</p>
+      <p class="fs-12px">Label agregado  0</p>
+    </div>
+  </div>
+</div>
+

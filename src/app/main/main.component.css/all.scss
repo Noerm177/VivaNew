@@ -1,0 +1,17 @@
+/*
+ * MAIN COMPONENT STYLES
+ */
+
+
+/* import base settings
+ ******************************************************************************/
+ @import '../../../assets/sass/settings/all';
+ @import '../../../assets/sass/tools/all';
+
+  /* components
+  ******************************************************************************/
+  @import "main.component-settings";
+  @import "main.component-sidenav";
+  @import "main.component-toolbar";
+  @import "main.component-main-container";
+  @import "main.component-user-menu";

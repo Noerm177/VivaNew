@@ -1,0 +1,21 @@
+/*
+ * CUSTOM MATERIAL CHECKBOX
+ */
+
+ .mat-checkbox{
+  &.mat-accent:not(.mat-checkbox-checked){
+    .mat-checkbox-frame{
+      border-color: $color-white-60;
+    }
+  }
+
+  &.mat-accent.mat-checkbox-checked{
+    .mat-checkbox-background{
+      background-color: $color-brand-primary;
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $color-brand-accent-900!important;
+    }
+  }
+ }

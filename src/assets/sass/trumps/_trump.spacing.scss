@@ -1,0 +1,111 @@
+/*
+ * SPACING UTILITIES
+ */
+
+// zero spacing
+.m-0 { margin: 0 !important }
+
+//axis spacing
+.mx-0{
+  margin-left: 0;
+  margin-right: 0;
+}
+.mx-15px {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.mx-28px {
+  margin-left: 28px;
+  margin-right: 28px;
+}
+.my-0{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+//auto spacing
+.mt-auto{ margin-top: auto; }
+.ml-auto{ margin-left: auto; }
+.mr-auto{ margin-right: auto; }
+.mb-auto{ margin-bottom: auto; }
+
+//top spacing
+.mt-0 { margin-top: 0; }
+.mt-6px { margin-top: 6px; }
+.mt-10px { margin-top: 10px; }
+.mt-50px { margin-top: 50px; }
+
+//left spacing
+.ml-0 { margin-left: 0; }
+.ml-3px { margin-left: 3px; }
+.ml-10px { margin-left: 10px; }
+.ml-16px { margin-left: 16px; }
+.ml-20px { margin-left: 20px; }
+.ml-28px { margin-left: 29px }
+.ml-21px { margin-left: 21px; }
+
+//right spacing
+.mr-0 { margin-right: 0; }
+.mr-10 { margin-right: 10%; }
+.mr-7px { margin-right: 7px; }
+.mr-8px { margin-right: 8px!important; }
+.mr-10px { margin-right: 10px;}
+.mr-15px { margin-right: 15px;}
+.mr-20px { margin-right: 20px;}
+.mr-28px { margin-right: 28px; }
+.mr-36px { margin-right: 36px; }
+.mr-45px { margin-right: 45px; }
+.mr-54px { margin-right: 54px; }
+
+//bottom spacing
+.mb-0 { margin-bottom: 0; }
+.mb-18px { margin-bottom: 18px!important; }
+.mb-20px { margin-bottom: 20px!important; }
+.mb-30px { margin-bottom: 30px!important; }
+
+
+/* ****** padding spacing ***/
+
+.p-0 {
+  padding: 0 !important;
+}
+
+//left
+.pl-10px{ padding-left: 10px;}
+
+//right
+.pr-0{ padding-right: 0;}
+.pr-10px{ padding-right: 10px;}
+
+// top
+.pt-0 { padding-top: 0 !important }
+.pt-10px { padding-top: 10px }
+.pt-14px { padding-top: 14px }
+.pt-18px { padding-top: 18px }
+
+//bottom
+.pb-10px{ padding-bottom: 10px;}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.px-6px {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.px-19px {
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+.px-22px{
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.py-16px{
+  padding-top: 16px;
+  padding-bottom: 16px;
+}

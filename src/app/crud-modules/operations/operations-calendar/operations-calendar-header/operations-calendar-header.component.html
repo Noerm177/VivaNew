@@ -1,0 +1,34 @@
+<!-- header component -->
+<div class="catalog-inner-header w-100">
+  <form class="flex flex-align-items-center">
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Lote: </label>
+      <mat-form-field class="mat-rounded-select mt-6px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select>
+          <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="catalog__input mr-28px">
+      <label [ngClass]="{ 'label-error': error }">Semana: </label>
+      <mat-form-field class="mat-rounded-select mt-6px" [ngClass]="{ 'mat-form-field-invalid': error }">
+        <mat-select>
+          <mat-option value="1">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="catalog__group-buttons" *ngIf="!editMode">
+    <!-- Rounded switch -->
+    <label class="rounded-switch" [ngClass]="{ 'checked' :labelIsChecked, 'no-checked' :!labelIsChecked }" (click)="_showCalendarSection()">
+      <input type="checkbox" (change)="getChecked()">
+      <span class="slider">
+        <div class="slider-container">{{labelChecked}}</div>
+        <div class="slider-labels">
+          <span>Día</span>
+          <span>Semana</span>
+        </div>
+      </span>
+    </label>
+  </div>
+</div>
